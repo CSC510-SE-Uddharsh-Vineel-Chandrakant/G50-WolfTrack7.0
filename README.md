@@ -5,23 +5,23 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10211710.svg)](https://doi.org/10.5281/zenodo.14026723)
 
 
-[![Manual Build](https://img.shields.io/github/actions/workflow/status/TeamBenign/WolfTrack5.0/main.yml)](https://github.com/TeamBenign/WolfTrack5.0/actions)
+[![Manual Build](https://img.shields.io/github/actions/workflow/status/TeamBenign/WolfTrack6.0/main.yml)](https://github.com/TeamBenign/WolfTrack6.0/actions)
 [![codecov](https://codecov.io/github/TeamBenign/WolfTrack5.0/graph/badge.svg?token=DI0W2ZSR9R)](https://codecov.io/github/TeamBenign/WolfTrack5.0)
-![GitHub language count](https://img.shields.io/github/languages/count/TeamBenign/WolfTrack5.0)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/TeamBenign/WolfTrack5.0)](https://github.com/TeamBenign/WolfTrack5.0/pulls)
-[![GitHub-size](https://img.shields.io/github/repo-size/TeamBenign/WolfTrack5.0)](https://github.com/TeamBenign/WolfTrack5.0)
-[![GitHub issues](https://img.shields.io/github/issues/TeamBenign/WolfTrack5.0)](https://github.com/TeamBenign/WolfTrack5.0/issues)
-[![GitHub-closed-issues](https://img.shields.io/github/issues-closed/TeamBenign/WolfTrack5.0)](https://github.com/TeamBenign/WolfTrack5.0/issues?q=is%3Aissue+is%3Aclosed)
+![GitHub language count](https://img.shields.io/github/languages/count/TeamBenign/WolfTrack6.0)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/TeamBenign/WolfTrack6.0)](https://github.com/TeamBenign/WolfTrack6.0/pulls)
+[![GitHub-size](https://img.shields.io/github/repo-size/TeamBenign/WolfTrack6.0)](https://github.com/TeamBenign/WolfTrack6.0)
+[![GitHub issues](https://img.shields.io/github/issues/TeamBenign/WolfTrack6.0)](https://github.com/TeamBenign/WolfTrack6.0/issues)
+[![GitHub-closed-issues](https://img.shields.io/github/issues-closed/TeamBenign/WolfTrack6.0)](https://github.com/TeamBenign/WolfTrack6.0/issues?q=is%3Aissue+is%3Aclosed)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#why-WolfTrack-5.0">Why WolfTrack 5.0?</a></li>
+    <li><a href="#why-WolfTrack-6.0">Why WolfTrack 6.0?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
-    <li><a href="#what-type-of-user-is-WolfTrack-5.0-best-suited-for?">What type of user is WolfTrack 5.0 best suited for?</a></li>
+    <li><a href="#what-type-of-user-is-WolfTrack-6.0-best-suited-for?">What type of user is WolfTrack 6.0 best suited for?</a></li>
     <li><a href="#technology-stack">Technology Stack</a></li>
     <li><a href="#version-control-tools">Version Control Tools</a></li>
     <li><a href="#tools">Tools</a></li>
@@ -38,26 +38,48 @@
   </ol>
 </details>
 
-## Why WolfTrack 5.0?
+## Why WolfTrack 6.0?
 
-WolfTrack5.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack5.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
+WolfTrack6.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack6.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack6.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
-We offer features like giving suggestions for improvements on your resume, tracking your application, and many more.
+We offer features like giving suggestions for improvements on your resume, AI-based suggestions, tracking your application, and many more.
 
 ---
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 5.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=ACj3HYIbg2A) 
+To demonstrate our application's functionality and showcase its working examples, we have produced a video for the WolfTrack 6.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=ACj3HYIbg2A) 
 
 ---
 
-## What is new in this version?
-Checkout the [this documentation](docs/UserGuide.pdf)
+# What's New in This Version
+
+This release brings significant updates designed to enhance user experience, functionality, and reliability. Here’s a breakdown of the latest features:
+
+## 🔍 Expanded Test Coverage
+- **Increased Test Cases:** We've broadened our test coverage to improve stability, ensuring a seamless user experience and greater reliability across all features.
+
+## 🎨 UI & User Experience Improvements
+- **Refined Login & Registration Pages:** Enhanced user-friendly messages guide users smoothly through login and sign-up processes.
+- **Redesigned Home Page:** The home page has been given a modern look, improving navigation and engagement.
+- **Modularized UI Components:** The new modular design makes the interface more responsive and easier to maintain, setting up for future scalability.
+
+## 🔒 Authentication & Authorization Fixes
+- Resolved key bugs in authentication and authorization to ensure a secure and reliable experience.
+
+## 📈 Enhanced Job Scraping & Search Filters
+- **Job Scraping with Salary Information:** Jobs now display salary details, giving users more insights to make informed decisions.
+- **Improved Search Filters:** More precise filters allow users to find exactly what they’re looking for, faster.
+
+## 🤖 AI-Powered Resume Feedback
+- **Google Gemini-Based AI Feedback:** Now, AI feedback covers not only resume content but also provides guidance on structure and design, ensuring a standout resume.
+
+
+This release makes the platform more powerful, user-friendly, and equipped to deliver a top-notch experience. Get ready to impress!
 
 ---
 
-## What type of user is WolfTrack 5.0 best suited for?
+## What type of user is WolfTrack 6.0 best suited for?
 
 This platform has been designed keeping in mind any person who is out to seek a job or internship. This may be a college student in any year, as well as a career professional wishing to switch. It may also be someone looking to enter an industry for the first time. This platform caters to a wide target audience and its simple, yet powerful features make it useful for everyone.
 
@@ -70,11 +92,12 @@ This platform has been designed keeping in mind any person who is out to seek a 
 <code><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank"><img height="50" src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_1280.png"></a></code>
 <code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank"><img height="50" src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png"></a></code>
 <code><a href="https://www.javascript.com/" target="_blank"><img height="50" src="https://cdn.freelogovectors.net/wp-content/uploads/2020/11/javascript_logo-768x873.png"></a></code>
+<code><a href="https://ai.google.dev/" target="_blank"><img height="50" src="https://pngimagesfree.com/wp-content/uploads/Google-Gemini-Ai-Logo-PNG.png"></a></code>
 <code><a href="https://getbootstrap.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-ar21.svg"></a></code>
 <code><a href="https://www.sqlite.org/index.html" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg"></a></code>
 <code><a href="https://aws.amazon.com/" target="_blank"><img height="50" src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"></a></code>
 
-<p align="center"> Python |  Flask |  HTML | CSS | JavaScript | BootStrap | SQLite | AWS </p>
+<p align="center"> Python |  Flask |  HTML | CSS | JavaScript | Gemini | SQLite | AWS </p>
 
 ## Version Control Tools
 
@@ -132,7 +155,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
     `source test_env/bin/activate`
 
-  - Build the virtual environment:(must be present in [project root directory](https://github.com/rutuja-39/WolfTrack5.0))
+  - Build the virtual environment:(must be present in [project root directory](https://github.com/TeamBenign/WolfTrack6.0))
 
     `pip install -r requirements.txt`
 
@@ -140,9 +163,9 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
   **To run/test the site locally:**
 
-  - Clone [WolfTrack github repo](https://github.com/rutuja-39/WolfTrack5.0).
+  - Clone [WolfTrack github repo](https://github.com/TeamBenign/WolfTrack6.0).
 
-  - Navigate to [project directory](https://github.com/rutuja-39/WolfTrack5.0).
+  - Navigate to [project directory](https://github.com/TeamBenign/WolfTrack6.0).
 
   - Run `python main.py` or `python3 main.py` <br> <br>
     If there is a certificate error coming up for nltk stopwords download: <br>
@@ -153,7 +176,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
   - Site will be hosted at:
     `http://127.0.0.1:5000/`
 
-- ### API Setup
+- ### Adzuna API Setup
 **Create an Account:**
 
   Go to the Adzuna Developer portal developer.adzuna.com.
@@ -171,14 +194,49 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 ---
 
-[Class/Functions Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/dev/docs/app.md)
-[Use Cases Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/docs/User%20Guide.pdf)
+### Google Gemini API Setup
+
+**Create an Account:**  
+Sign up for a [Google Cloud account](https://cloud.google.com/) if you haven’t already.
+
+**Create a Project:**  
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
+2. Create a new project or select an existing one from the project dropdown.
+
+### Enable the Google Gemini API
+
+1. In the Cloud Console, go to **APIs & Services > Library**.
+2. Search for **Google Gemini API**.
+3. Click on the API and select **Enable**.
+
+### Set Up API Authentication
+
+**Create API Credentials:**
+1. Go to **APIs & Services > Credentials** in the Google Cloud Console.
+2. Click **Create Credentials** and select either **API Key** or **OAuth 2.0 Client ID** (OAuth is recommended for better security).
+
+**Set Up OAuth Consent Screen (for OAuth 2.0):**
+1. Configure the consent screen with your app details, including name and contact info.
+2. Set up an **OAuth 2.0 Client ID** with your application type (e.g., Web Application).
+3. Save the **Client ID** and **Client Secret** for later use.
+
+### Install the Google API Client Library
+
+To interact with the API in Python, install the required libraries:
+
+```bash
+pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+---
+
+[Class/Functions Documentation](https://github.com/TeamBenign/WolfTrack6.0/blob/dev/docs/app.md)
+[Use Cases Documentation](https://github.com/TeamBenign/WolfTrack6.0/blob/Main/docs/User%20Guide.pdf)
 
 ---
 
 ## Code Coverage
 
-It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack5.0/tree/Main/.github/workflows)
+It is part of the [Github Workflow Build](https://github.com/TeamBenign/WolfTrack6.0/tree/Main/.github/workflows)
 
 ---
 
@@ -241,20 +299,26 @@ It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack
 - [x] Resolved upload and download resume bugs for smoother user experience.<br>
 - [x] Implemented Test Cases from scratch due to extensive code refactoring.
 
-### Phase 6 WolfTrack 6.0 (Future Scope):
+### Phase 6 WolfTrack 6.0:
 
-- [ ] Web scraper for recommended jobs
-- [ ] Configure Cron-Job for reminder as SMS notification
-- [ ] Online chat with expert
-- [ ] Resume template editor
+- [x] Expanded Test Coverage
+- [x] UI & User Experience Improvements
+- [x] Authentication & Authorization Fixes
+- [x] Enhanced Job Scraping & Search Filters
+- [x] AI-Powered Resume Feedback
+
+### Phase 7 WolfTrack 6.0:
+
+- [ ] Sentiment analysis of resume feedbacks
+- [ ] Category-wise resume upload and editing
+- [ ] Online chat
 - [ ] Interview Preparation resources tab
-- [ ] Salary insights and comparisons
-
+- [ ] Insights dahsboard
 ---
 
 ## Developer Support and Updates
 
-For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group32@gmail.com**. We are here to assist you and address any questions or issues you may have.
+For support and inquiries related to **WolfTrack 6.0**, please contact us at **mhaque4@ncsu.edu**, **kangul@ncsu.edu**, **rbollep@ncsu.edu**. We are here to assist you and address any questions or issues you may have.
 
 We appreciate your interest and look forward to providing you with the best possible support and updates.
 
@@ -269,7 +333,7 @@ This project currently receives no funding.
 
 ## Contributions
 
-Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 5.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/TeamBenign/WolfTrack6.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 5.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
@@ -277,10 +341,9 @@ Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/shonilbhide"><img src="https://avatars.githubusercontent.com/u/51792152?s=96&v=4" width="75px;" alt=""/><br /><sub><b>Shonil bhide</b></sub></a></td>
-    <td align="center"><a href="https://github.com/sakshibasapure"><img src="https://avatars.githubusercontent.com/u/40641044?v=4" width="75px;" alt=""/><br /><sub><b>Sakshi Basapure</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/rutuja-39"><img src="https://avatars.githubusercontent.com/u/59025269?v=4" width="75px;" alt=""/><br /><sub><b>Rutuja Rashinkar</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/agmalpur"><img src="https://avatars.githubusercontent.com/u/144184451?v=4" width="75px;" alt=""/><br /><sub><b>Akshada Malpure</b></sub></a><br /></td>
+    <td align="center"><a href="[https://github.com/shonilbhide](https://github.com/nazmul-me)"><img src="https://avatars.githubusercontent.com/u/8447597?v=4" width="75px;" alt=""/><br /><sub><b>Md. Nazmul Hossain</b></sub></a></td>
+    <td align="center"><a href="https://github.com/KKGanguly"><img src="https://avatars.githubusercontent.com/u/5454452?v=4" width="75px;" alt=""/><br /><sub><b>Kishan Kumar Ganguly</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/rcb1409"><img src="https://avatars.githubusercontent.com/u/179258991?v=4" width="75px;" alt=""/><br /><sub><b>Ravi Chandu Bollepalli</b></sub></a><br /></td>
   </tr>
 </table>
 
