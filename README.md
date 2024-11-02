@@ -110,7 +110,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;![ezgif com-optimize](https://user-images.githubusercontent.com/32817064/140445992-15af5890-6aa5-48e5-b663-7e6bd1272d26.gif)
 
 - #### We have created an entire CI pipeline which includes all the stages including Code Analysis, Style checkers, Code Coverage, Code Assemble and Docker Image Build, readily available to run the image on any server without manually setting up the environment.
-- [Github WorkFlow YAML](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/.github/workflows/main.yml) | [Dockerfile](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter) | [Flake8](https://github.com/nehajaideep/WolfTrack23.0/blob/Group10StableBranch/.github/workflows/main.yml)
+- [Github WorkFlow YAML](https://github.com/TeamBenign/WolfTrack6.0/.github/workflows/main.yml) | [Dockerfile](https://github.com/TeamBenign/WolfTrack6.0/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter) | [Flake8](https://github.com/TeamBenign/WolfTrack6.0/.github/workflows/main.yml)
 
 ### Third-Party Tools
 
@@ -203,13 +203,13 @@ Sign up for a [Google Cloud account](https://cloud.google.com/) if you haven’t
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
 2. Create a new project or select an existing one from the project dropdown.
 
-### Enable the Google Gemini API
+**Enable the Google Gemini API**  
 
 1. In the Cloud Console, go to **APIs & Services > Library**.
 2. Search for **Google Gemini API**.
 3. Click on the API and select **Enable**.
 
-### Set Up API Authentication
+**Set Up API Authentication**  
 
 **Create API Credentials:**
 1. Go to **APIs & Services > Credentials** in the Google Cloud Console.
@@ -219,13 +219,6 @@ Sign up for a [Google Cloud account](https://cloud.google.com/) if you haven’t
 1. Configure the consent screen with your app details, including name and contact info.
 2. Set up an **OAuth 2.0 Client ID** with your application type (e.g., Web Application).
 3. Save the **Client ID** and **Client Secret** for later use.
-
-### Install the Google API Client Library
-
-To interact with the API in Python, install the required libraries:
-
-```bash
-pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
 
 ---
 
