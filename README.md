@@ -192,9 +192,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
   Update the adzuna_url in your app.py - using the newly obtained credentials. This updated URL should reflect the API endpoint along with your authentication credentials for accessing the Adzuna API.
 
----
-
-### Google Gemini API Setup
+- ### Google Gemini API Setup
 
 **Create an Account:**  
 Sign up for a [Google Cloud account](https://cloud.google.com/) if you haven’t already.
