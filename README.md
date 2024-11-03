@@ -48,7 +48,7 @@ We offer features like giving suggestions for improvements on your resume, AI-ba
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a video for the WolfTrack 6.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=ACj3HYIbg2A) 
+To demonstrate our application's functionality and showcase its working examples, we have produced a video for the WolfTrack 6.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [Google Drive Link](https://drive.google.com/drive/u/0/folders/12wHCHCc0qkgh_-oPQci3bGEgrj7ylkFT) 
 
 ---
 
@@ -110,7 +110,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;![ezgif com-optimize](https://user-images.githubusercontent.com/32817064/140445992-15af5890-6aa5-48e5-b663-7e6bd1272d26.gif)
 
 - #### We have created an entire CI pipeline which includes all the stages including Code Analysis, Style checkers, Code Coverage, Code Assemble and Docker Image Build, readily available to run the image on any server without manually setting up the environment.
-- [Github WorkFlow YAML](https://github.com/TeamBenign/WolfTrack6.0/.github/workflows/main.yml) | [Dockerfile](https://github.com/TeamBenign/WolfTrack6.0/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter) | [Flake8](https://github.com/TeamBenign/WolfTrack6.0/.github/workflows/main.yml)
+- [Github WorkFlow YAML](https://github.com/TeamBenign/WolfTrack6.0/blob/Main/.github/workflows/main.yml) | [Dockerfile](https://github.com/TeamBenign/WolfTrack6.0/blob/Main/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [Flake8](https://github.com/TeamBenign/WolfTrack6.0/.github/workflows/main.yml) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter)
 
 ### Third-Party Tools
 
