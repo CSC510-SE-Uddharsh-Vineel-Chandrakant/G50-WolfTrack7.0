@@ -18,7 +18,7 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#why-WolfTrack-6.0">Why WolfTrack 6.0?</a></li>
+    <li><a href="#why-WolfTrack-7.0">Why WolfTrack 7.0?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
     <li><a href="#what-type-of-user-is-WolfTrack-6.0-best-suited-for?">What type of user is WolfTrack 6.0 best suited for?</a></li>
