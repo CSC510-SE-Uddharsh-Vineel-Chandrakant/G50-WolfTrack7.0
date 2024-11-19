@@ -7,6 +7,7 @@
 
 [![Manual Build](https://img.shields.io/github/actions/workflow/status/TeamBenign/WolfTrack6.0/main.yml)](https://github.com/TeamBenign/WolfTrack6.0/actions)
 [![codecov](https://codecov.io/github/TeamBenign/WolfTrack5.0/graph/badge.svg?token=DI0W2ZSR9R)](https://codecov.io/github/TeamBenign/WolfTrack5.0)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 ![GitHub language count](https://img.shields.io/github/languages/count/TeamBenign/WolfTrack6.0)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/TeamBenign/WolfTrack6.0)](https://github.com/TeamBenign/WolfTrack6.0/pulls)
 [![GitHub-size](https://img.shields.io/github/repo-size/TeamBenign/WolfTrack6.0)](https://github.com/TeamBenign/WolfTrack6.0)
