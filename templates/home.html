@@ -131,15 +131,25 @@
             </nav>
         </div>
 
-        <!-- Right Column: CV Upload -->
+        <!-- Right Column: Resume Upload -->
         <div class="col-md-2 bg-light p-3">
-            <h4 class="mb-3">CV Upload</h4>
+            <h4 class="mb-3">Resume Upload</h4>
             <form id="upload-form" action="{{url_for('upload', user_id=user[2])}}" method="POST" enctype="multipart/form-data" class="mb-3">
                 <div class="mb-3">
                     <input type="file" name="file" class="form-control" accept=".pdf,.doc,.docx,.txt" />
                 </div>
-                <button type="submit" class="btn btn-dark w-100">Upload CV</button>
+                <button type="submit" class="btn btn-dark w-100">Upload Resume</button>
             </form>
+            
+            <hr>
+            
+            <h5 class="mb-3">Download Resume</h5>
+            <form action="{{url_for('display')}}" method="POST">
+                <button type="submit" class="btn btn-dark w-100">Download Resume</button>
+            </form>
+
+            <hr>
+
         </div>
     </div>
 </div>
