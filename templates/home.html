@@ -131,16 +131,105 @@
             </nav>
         </div>
 
-        <!-- Right Column: CV Upload -->
+        <!-- Right Column: Resume Upload -->
         <div class="col-md-2 bg-light p-3">
-            <h4>Upload CV</h4>
-            <form enctype="multipart/form-data" method="post">
-                <div class="mb-3">
-                    <label for="cvUpload" class="form-label">Select CV</label>
-                    <input type="file" class="form-control" id="cvUpload" name="cv">
+            <div class="col-sm-3 sidenav sidenav-right">
+                <div class="section-heading">
+                  Resume
+                  <!--Padding is optional-->
+                  <div class="section-division"></div>
+                  <div class="section-content">
+                    <form
+                      id="upload-form"
+                      action="{{url_for('upload', user_id = user[2])}}"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <input type="hidden" name="user_id" value="{{ user[2] }}" />
+                      <input
+                        type="file"
+                        name="file"
+                        multiple
+                        style="color: #1d4552; font-size: 14px"
+                      />
+                      <button
+                        href="upload"
+                        type="Submit"
+                        value="upload(user[2])"
+                        name="Upload"
+                        class="btn btn-dark"
+                        style="margin-top: 5%; position: relative;width: 150px;"
+                      >
+                        Add Resume
+                      </button>
+                    </form>
+                    <form
+                      action="{{url_for('display')}}"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <button
+                        href="display"
+                        type="Submit"
+                        value="display()"
+                        name="display"
+                        class="btn btn-dark"
+                        style="margin-top: 5%; position: relative;width: 150px;"
+                      >
+                        Download Resume
+                      </button>
+                    </form>
+                  </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Upload</button>
-            </form>
+                <div class="section-heading" style="padding-top: 20px;width: 150px;" >
+                  Send Profile
+                  <!--Padding is optional-->
+                  <div class="section-division"></div>
+                  <div class="section-content">
+                    <form
+                      action="{{url_for('send_Profile', user_id = user[2])}}"
+                      method="POST"
+                    >
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div
+                            class="input-group-text padding-left-right-6"
+                            id="btnGroupAddon"
+                            style="width: 150px;"
+                          >
+                            <i class="material-icons icon-eye">email</i>
+                          </div>
+                        </div>
+                        <input type="hidden" name="user_id" value="{{ user[2] }}">
+                        <input
+                          type="text"
+                          name="emailID"
+                          id="emailID"
+                          class="form-control"
+                          placeholder="Email ID"
+                        />
+                        <div
+                          class="input-group-append"
+                          value="send_Profile(user[2])"
+                          onclick=""
+                        >
+                          <button
+                            type="submit"
+                            class="input-group-text btn-primary padding-left-right-6"
+                            id="btnGroupAddon"
+                          >
+                            <i class="material-icons icon-eye">send</i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+      
+                <br />
+      
+      
+              </div>
         </div>
     </div>
 </div>
