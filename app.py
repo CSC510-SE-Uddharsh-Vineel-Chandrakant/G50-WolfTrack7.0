@@ -408,7 +408,7 @@ def search():
     if(job_type=="part_time"): query+="&part_time=1"
     if(len(company)>0): query+="&company="+company
 
-    adzuna_url = f"https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=575e7a4b&app_key=35423835cbd9428eb799622c6081ffed&"+query
+    adzuna_url = f"https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=ff3aac23&app_key=ba74da995e25751969e995bcc4a86799	&"+query
     try:
         response = requests.get(adzuna_url)
         if response.status_code == 200:
