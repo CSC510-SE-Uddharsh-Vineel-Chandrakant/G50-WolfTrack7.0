@@ -133,32 +133,103 @@
 
         <!-- Right Column: Resume Upload -->
         <div class="col-md-2 bg-light p-3">
-            <h4 class="mb-3">Resume Upload</h4>
-            <form id="upload-form" action="{{url_for('upload', user_id=user[2])}}" method="POST" enctype="multipart/form-data" class="mb-3">
-                <div class="mb-3">
-                    <input type="file" name="file" class="form-control" accept=".pdf,.doc,.docx,.txt" />
+            <div class="col-sm-3 sidenav sidenav-right">
+                <div class="section-heading">
+                  Resume
+                  <!--Padding is optional-->
+                  <div class="section-division"></div>
+                  <div class="section-content">
+                    <form
+                      id="upload-form"
+                      action="{{url_for('upload', user_id = user[2])}}"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <input type="hidden" name="user_id" value="{{ user[2] }}" />
+                      <input
+                        type="file"
+                        name="file"
+                        multiple
+                        style="color: #1d4552; font-size: 14px"
+                      />
+                      <button
+                        href="upload"
+                        type="Submit"
+                        value="upload(user[2])"
+                        name="Upload"
+                        class="btn btn-dark"
+                        style="margin-top: 5%; position: relative;width: 150px;"
+                      >
+                        Add Resume
+                      </button>
+                    </form>
+                    <form
+                      action="{{url_for('display')}}"
+                      method="POST"
+                      enctype="multipart/form-data"
+                    >
+                      <button
+                        href="display"
+                        type="Submit"
+                        value="display()"
+                        name="display"
+                        class="btn btn-dark"
+                        style="margin-top: 5%; position: relative;width: 150px;"
+                      >
+                        Download Resume
+                      </button>
+                    </form>
+                  </div>
                 </div>
-                <button type="submit" class="btn btn-dark w-100">Upload Resume</button>
-            </form>
-            
-            <hr>
-            
-            <h5 class="mb-3">Download Resume</h5>
-            <form action="{{url_for('display')}}" method="POST">
-                <button type="submit" class="btn btn-dark w-100">Download Resume</button>
-            </form>
-
-            <hr>
-
-            <h5 class="mb-3">Send Profile</h5>
-            <form action="{{url_for('send_Profile', user_id=user[2])}}" method="POST">
-                <div class="input-group">
-                    <input type="email" name="emailID" id="emailID" class="form-control" placeholder="Enter email ID" required />
-                    <button type="submit" class="btn btn-primary input-group-append">
-                        <i class="material-icons">send</i> Send
-                    </button>
+                <div class="section-heading" style="padding-top: 20px;width: 150px;" >
+                  Send Profile
+                  <!--Padding is optional-->
+                  <div class="section-division"></div>
+                  <div class="section-content">
+                    <form
+                      action="{{url_for('send_Profile', user_id = user[2])}}"
+                      method="POST"
+                    >
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div
+                            class="input-group-text padding-left-right-6"
+                            id="btnGroupAddon"
+                            style="width: 150px;"
+                          >
+                            <i class="material-icons icon-eye">email</i>
+                          </div>
+                        </div>
+                        <input type="hidden" name="user_id" value="{{ user[2] }}">
+                        <input
+                          type="text"
+                          name="emailID"
+                          id="emailID"
+                          class="form-control"
+                          placeholder="Email ID"
+                        />
+                        <div
+                          class="input-group-append"
+                          value="send_Profile(user[2])"
+                          onclick=""
+                        >
+                          <button
+                            type="submit"
+                            class="input-group-text btn-primary padding-left-right-6"
+                            id="btnGroupAddon"
+                          >
+                            <i class="material-icons icon-eye">send</i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
-            </form>
+      
+                <br />
+      
+      
+              </div>
         </div>
     </div>
 </div>
@@ -185,15 +256,18 @@ document.addEventListener('DOMContentLoaded', function() {
         let totalPages = Math.ceil(visibleRows.length / rowsPerPage);
         pagination.innerHTML = '';
 
+        // Display pages only if there are more than one
         if (totalPages <= 1) {
             return;
         }
 
+        // Previous button
         if (currentPage > 1) {
             let prevLi = document.createElement('li');
             prevLi.className = 'page-item';
-            prevLi.innerHTML = `<a class="page-link" href="#">Previous</a>`;
-            prevLi.addEventListener('click', function() {
+            prevLi.innerHTML = `<a class="page-link" href="#" aria-label="Previous">&laquo;</a>`;
+            prevLi.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default anchor click behavior
                 currentPage--;
                 displayTableRows();
                 updatePagination();
@@ -201,23 +275,27 @@ document.addEventListener('DOMContentLoaded', function() {
             pagination.appendChild(prevLi);
         }
 
-        for (let page = 1; page <= totalPages; page++) {
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
             let li = document.createElement('li');
-            li.className = `page-item ${page === currentPage ? 'active' : ''}`;
-            li.innerHTML = `<a class="page-link" href="#">${page}</a>`;
-            li.addEventListener('click', function() {
-                currentPage = page;
+            li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+            li.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default anchor click behavior
+                currentPage = i;
                 displayTableRows();
                 updatePagination();
             });
             pagination.appendChild(li);
         }
 
+        // Next button
         if (currentPage < totalPages) {
             let nextLi = document.createElement('li');
             nextLi.className = 'page-item';
-            nextLi.innerHTML = `<a class="page-link" href="#">Next</a>`;
-            nextLi.addEventListener('click', function() {
+            nextLi.innerHTML = `<a class="page-link" href="#" aria-label="Next">&raquo;</a>`;
+            nextLi.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default anchor click behavior
                 currentPage++;
                 displayTableRows();
                 updatePagination();
@@ -226,20 +304,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    displayTableRows();
-    updatePagination();
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        let filter = this.value.toUpperCase();
 
-    // Implement search filtering functionality
-    let searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener('input', function() {
-        let filter = searchInput.value.toLowerCase();
-        rows.forEach(function(row) {
-            let cells = row.getElementsByTagName('td');
-            let matched = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(filter));
-            row.style.display = matched ? '' : 'none';
+        rows.forEach(row => {
+            let rowText = '';
+            for (let cell of row.cells) {
+                rowText += cell.textContent || cell.innerText;
+            }
+            row.style.display = rowText.toUpperCase().includes(filter) ? '' : 'none';
         });
-        updatePagination(); // Recalculate pagination after filtering
+
+        // Reset to the first page and update pagination after search
+        currentPage = 1;
+        updatePagination();
+        displayTableRows();
     });
+
+    // Initialize pagination and table display
+    updatePagination();
+    displayTableRows();
 });
 </script>
+
 {% endblock %}
