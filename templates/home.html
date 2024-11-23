@@ -133,13 +133,12 @@
 
         <!-- Right Column: CV Upload -->
         <div class="col-md-2 bg-light p-3">
-            <h4>Upload CV</h4>
-            <form enctype="multipart/form-data" method="post">
+            <h4 class="mb-3">CV Upload</h4>
+            <form id="upload-form" action="{{url_for('upload', user_id=user[2])}}" method="POST" enctype="multipart/form-data" class="mb-3">
                 <div class="mb-3">
-                    <label for="cvUpload" class="form-label">Select CV</label>
-                    <input type="file" class="form-control" id="cvUpload" name="cv">
+                    <input type="file" name="file" class="form-control" accept=".pdf,.doc,.docx,.txt" />
                 </div>
-                <button type="submit" class="btn btn-primary">Upload</button>
+                <button type="submit" class="btn btn-dark w-100">Upload CV</button>
             </form>
         </div>
     </div>
@@ -167,18 +166,15 @@ document.addEventListener('DOMContentLoaded', function() {
         let totalPages = Math.ceil(visibleRows.length / rowsPerPage);
         pagination.innerHTML = '';
 
-        // Display pages only if there are more than one
         if (totalPages <= 1) {
             return;
         }
 
-        // Previous button
         if (currentPage > 1) {
             let prevLi = document.createElement('li');
             prevLi.className = 'page-item';
-            prevLi.innerHTML = `<a class="page-link" href="#" aria-label="Previous">&laquo;</a>`;
-            prevLi.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent default anchor click behavior
+            prevLi.innerHTML = `<a class="page-link" href="#">Previous</a>`;
+            prevLi.addEventListener('click', function() {
                 currentPage--;
                 displayTableRows();
                 updatePagination();
@@ -186,27 +182,23 @@ document.addEventListener('DOMContentLoaded', function() {
             pagination.appendChild(prevLi);
         }
 
-        // Page numbers
-        for (let i = 1; i <= totalPages; i++) {
+        for (let page = 1; page <= totalPages; page++) {
             let li = document.createElement('li');
-            li.className = `page-item ${i === currentPage ? 'active' : ''}`;
-            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-            li.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent default anchor click behavior
-                currentPage = i;
+            li.className = `page-item ${page === currentPage ? 'active' : ''}`;
+            li.innerHTML = `<a class="page-link" href="#">${page}</a>`;
+            li.addEventListener('click', function() {
+                currentPage = page;
                 displayTableRows();
                 updatePagination();
             });
             pagination.appendChild(li);
         }
 
-        // Next button
         if (currentPage < totalPages) {
             let nextLi = document.createElement('li');
             nextLi.className = 'page-item';
-            nextLi.innerHTML = `<a class="page-link" href="#" aria-label="Next">&raquo;</a>`;
-            nextLi.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent default anchor click behavior
+            nextLi.innerHTML = `<a class="page-link" href="#">Next</a>`;
+            nextLi.addEventListener('click', function() {
                 currentPage++;
                 displayTableRows();
                 updatePagination();
@@ -215,27 +207,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    document.getElementById('searchInput').addEventListener('keyup', function() {
-        let filter = this.value.toUpperCase();
-
-        rows.forEach(row => {
-            let rowText = '';
-            for (let cell of row.cells) {
-                rowText += cell.textContent || cell.innerText;
-            }
-            row.style.display = rowText.toUpperCase().includes(filter) ? '' : 'none';
-        });
-
-        // Reset to the first page and update pagination after search
-        currentPage = 1;
-        updatePagination();
-        displayTableRows();
-    });
-
-    // Initialize pagination and table display
-    updatePagination();
     displayTableRows();
+    updatePagination();
+
+    // Implement search filtering functionality
+    let searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function() {
+        let filter = searchInput.value.toLowerCase();
+        rows.forEach(function(row) {
+            let cells = row.getElementsByTagName('td');
+            let matched = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(filter));
+            row.style.display = matched ? '' : 'none';
+        });
+        updatePagination(); // Recalculate pagination after filtering
+    });
 });
 </script>
-
 {% endblock %}
