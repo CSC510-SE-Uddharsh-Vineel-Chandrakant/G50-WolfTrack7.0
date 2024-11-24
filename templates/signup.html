@@ -1,12 +1,67 @@
 {% extends "layout/skeleton.html" %}
 
 {% block content %}
-<div class="row justify-content-center">
+<style>
+    body {
+        background: linear-gradient(to bottom, #ffe6e6, #ffffff); /* Soft reddish-white gradient */
+        font-family: Arial, sans-serif;
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        margin-top: 50px;
+    }
+
+    .card-title {
+        color: #ff4d4d; /* Reddish tone for headings */
+        font-weight: bold;
+    }
+
+    .form-control, .form-select {
+        height: 50px;
+        border: 1px solid #ced4da;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus, .form-select:focus {
+        box-shadow: 0px 0px 8px rgba(255, 77, 77, 0.5); /* Soft red focus effect */
+        border-color: #ff4d4d;
+    }
+
+    button {
+        background-color: #ff4d4d;
+        color: white;
+        border-radius: 25px;
+        font-weight: bold;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #e60000; /* Darker red on hover */
+    }
+
+    .error-message {
+        font-size: 0.85rem;
+        margin-top: 5px;
+        color: red;
+    }
+
+    /* For a consistent card and form layout */
+    .container {
+        max-width: 600px;
+    }
+</style>
+
+<div class="row justify-content-center mt-5">
     <div class="col-md-6">
-        <div class="card shadow-sm">
-            <div class="card-body">
+        <div class="card shadow rounded border-0">
+            <div class="card-body p-4">
                 <h3 class="card-title text-center mb-4">Sign Up to WolfTrack</h3>
-                
+
                 <!-- Flash Messages -->
                 {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
@@ -17,26 +72,26 @@
                         {% endfor %}
                     {% endif %}
                 {% endwith %}
-                
-                <!-- Login Form -->
+
+                <!-- Signup Form -->
                 <form method="POST" action="{{ url_for('signup') }}" id="signup-form">
-                    <div class="mb-3">
-                        <label for="Name" class="form-label">Name</label>
+                    <div class="mb-4">
+                        <label for="Name" class="form-label fw-semibold">Name</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Full Name" required>
                         <span class="error-message" id="nameMessage"></span>
                     </div>
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
+                    <div class="mb-4">
+                        <label for="username" class="form-label fw-semibold">Username</label>
                         <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
                         <span class="error-message" id="usernameMessage"></span>
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
+                    <div class="mb-4">
+                        <label for="password" class="form-label fw-semibold">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
                         <span class="error-message" id="passwordMessage"></span>
                     </div>
-                    <div class="mb-3">
-                        <label for="user_role" class="form-label">User Role</label>
+                    <div class="mb-4">
+                        <label for="user_role" class="form-label fw-semibold">User Role</label>
                         <select class="form-select" id="user_role" name="user_role" required>
                             <option value="" selected disabled>Select your role</option>
                             <option value="admin">Admin</option>
@@ -58,7 +113,6 @@
 
         if (name.trim() === "") {
             nameMessage.textContent = "Name cannot be empty.";
-            nameMessage.style.color = "red";
         } else {
             nameMessage.textContent = "";
         }
@@ -68,14 +122,11 @@
     document.getElementById("username").addEventListener("input", function () {
         const username = document.getElementById("username").value;
         const usernameMessage = document.getElementById("usernameMessage");
-        console.log(username)
 
         if (username.length < 4) {
             usernameMessage.textContent = "Username must be at least 4 characters long.";
-            usernameMessage.style.color = "red";
         } else if (username.length > 20) {
             usernameMessage.textContent = "Username cannot exceed 20 characters.";
-            usernameMessage.style.color = "red";
         } else {
             usernameMessage.textContent = "";
         }
@@ -88,10 +139,8 @@
 
         if (password.length < 8) {
             passwordMessage.textContent = "Password must be at least 8 characters long.";
-            passwordMessage.style.color = "red";
         } else if (password.length > 20) {
             passwordMessage.textContent = "Password cannot exceed 20 characters.";
-            passwordMessage.style.color = "red";
         } else {
             passwordMessage.textContent = "";
         }
