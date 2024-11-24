@@ -26,7 +26,7 @@
     <li><a href="#why-WolfTrack-7.0">Why WolfTrack 7.0?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
-    <li><a href="#what-type-of-user-is-WolfTrack-6.0-best-suited-for?">What type of user is WolfTrack 6.0 best suited for?</a></li>
+    <li><a href="#what-type-of-user-is-WolfTrack-7.0-best-suited-for?">What type of user is WolfTrack 6.0 best suited for?</a></li>
     <li><a href="#technology-stack">Technology Stack</a></li>
     <li><a href="#version-control-tools">Version Control Tools</a></li>
     <li><a href="#tools">Tools</a></li>
@@ -43,9 +43,9 @@
   </ol>
 </details>
 
-## Why WolfTrack 6.0?
+## Why WolfTrack 7.0?
 
-WolfTrack6.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack6.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack6.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
+WolfTrack6.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack6.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack7.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
 We offer features like giving suggestions for improvements on your resume, AI-based suggestions, tracking your application, and many more.
 
@@ -53,7 +53,7 @@ We offer features like giving suggestions for improvements on your resume, AI-ba
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a video for the WolfTrack 6.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [Google Drive Link](https://drive.google.com/drive/u/0/folders/12wHCHCc0qkgh_-oPQci3bGEgrj7ylkFT) 
+To demonstrate our application's functionality and showcase its working examples, we have produced a video for the WolfTrack 7.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [Google Drive Link](https://drive.google.com/drive/u/0/folders/12wHCHCc0qkgh_-oPQci3bGEgrj7ylkFT) 
 
 ---
 
@@ -84,7 +84,7 @@ This release makes the platform more powerful, user-friendly, and equipped to de
 
 ---
 
-## What type of user is WolfTrack 6.0 best suited for?
+## What type of user is WolfTrack 7.0 best suited for?
 
 This platform has been designed keeping in mind any person who is out to seek a job or internship. This may be a college student in any year, as well as a career professional wishing to switch. It may also be someone looking to enter an industry for the first time. This platform caters to a wide target audience and its simple, yet powerful features make it useful for everyone.
 
@@ -232,7 +232,7 @@ Sign up for a [Google Cloud account](https://cloud.google.com/) if you haven’t
 
 ## Code Coverage
 
-It is part of the [Github Workflow Build](https://github.com/TeamBenign/WolfTrack6.0/tree/Main/.github/workflows)
+It is part of the [Github Workflow Build](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/tree/Main/.github/workflows)
 
 ---
 
@@ -305,16 +305,17 @@ It is part of the [Github Workflow Build](https://github.com/TeamBenign/WolfTrac
 
 ### Phase 7 WolfTrack 6.0:
 
-- [ ] Sentiment analysis of resume feedbacks
-- [ ] Category-wise resume upload and editing
-- [ ] Online chat
-- [ ] Interview Preparation resources tab
-- [ ] Insights dahsboard
+- [ ] Major UI and User Enhancements for the simple looking application
+- [ ] Added download resume feature that allows users to download their latest resume
+- [ ] Added Input validations to enhance the security
+- [ ] Wider Test Coverage
+- [ ] Added skills extraction
+- [ ] Fixed Bugs in the project
 ---
 
 ## Developer Support and Updates
 
-For support and inquiries related to **WolfTrack 6.0**, please contact us at **mhaque4@ncsu.edu**, **kangul@ncsu.edu**, **rbollep@ncsu.edu**. We are here to assist you and address any questions or issues you may have.
+For support and inquiries related to **WolfTrack 7.0**, please contact us at **smarred@ncsu.edu**, **ckoneti@ncsu.edu**, **uvasili@ncsu.edu**. We are here to assist you and address any questions or issues you may have.
 
 We appreciate your interest and look forward to providing you with the best possible support and updates.
 
@@ -329,7 +330,7 @@ This project currently receives no funding.
 
 ## Contributions
 
-Please refer to the [CONTRIBUTING.md](https://github.com/TeamBenign/WolfTrack6.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 5.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 7.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
