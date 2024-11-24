@@ -277,11 +277,17 @@ def send_Profile():
 @app.route('/student/job_profile_analyze', methods=['GET', 'POST'])
 def job_profile_analyze():
     if request.method == 'POST':
-        job_profile = request.form['job_profile']
-        skills = extract_skills(job_profile)
-        print("\n\n\n\n\n",skills)
-        skills_text = ', '.join(skills)
-        return render_template('job_profile_analyze.html', skills_text=skills_text, job_profile=job_profile)
+        job_profile = request.form.get('job_profile', '').strip()
+        try:
+            # Validate and extract skills
+            skills = extract_skills(job_profile)
+            skills_text = ', '.join(skills)
+            return render_template('job_profile_analyze.html', skills_text=skills_text, job_profile=job_profile)
+        except ValueError as e:
+            # Handle empty or invalid input error
+            error_message = str(e)
+            return render_template('job_profile_analyze.html', skills_text='', job_profile=job_profile, error_message=error_message)
+    # For GET requests, render the default page
     return render_template('job_profile_analyze.html', skills_text='', job_profile='')
 
 filename=""

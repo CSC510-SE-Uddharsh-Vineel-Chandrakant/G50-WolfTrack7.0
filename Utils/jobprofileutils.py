@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 known_skills = [
     # Technical Skills
-    "Python", "Java", "JavaScript", "C", "C++", "R", "Go", "PHP", "Ruby", "SQL", "MySQL", 
+    "Python", "Java", "JavaScript", "C++", "Go", "PHP", "Ruby", "SQL", "MySQL", 
     "MongoDB", "Scala", "Hadoop", "Apache Spark", "Flask", "Django", "React", "ReactJS", 
     "Node.js", "TensorFlow", "Keras", "PyTorch", "FastAI", "NLTK", "Scikit-learn", "NumPy", 
     "Pandas", "Linux", "HTML", "CSS", "TypeScript", "Swift", "Objective-C", 
@@ -34,6 +34,9 @@ def to_camel_case(string):
     return words[0].lower() + ''.join(word.capitalize() for word in words[1:])
 
 def extract_skills(description):
+    if not description or len(description.strip()) == 0:
+        raise ValueError("Description cannot be null or empty.")
+    
     """Extract skills from a description based on a list of known skills."""
     # Tokenize the description
     tokens = word_tokenize(description.lower())
@@ -42,20 +45,18 @@ def extract_skills(description):
     stop_words = set(stopwords.words('english'))
     
     # Filter out stop words and create a unique set of tokens
-    unique_terms = set(token for token in tokens if token.isalnum() and token not in stop_words)
+    filtered_tokens = set(token for token in tokens if token.isalnum() and token not in stop_words)
     
     # Initialize an array to hold found skills
     found_skills = []
-    
+
     # Check for known skills in the description
     for skill in known_skills:
-        lower_case_skill = skill.lower()
+        # Tokenize the skill into individual words and check for a match in filtered tokens
+        skill_tokens = word_tokenize(skill.lower())
         
-        # Check for exact matches in the tokenized description
-        if lower_case_skill in unique_terms:
-            found_skills.append(to_camel_case(skill))
-        # Also check if the skill is present as a phrase
-        elif lower_case_skill in description.lower():
+        # Match only if all parts of the skill exist in tokens
+        if all(token in filtered_tokens for token in skill_tokens):
             found_skills.append(to_camel_case(skill))
     
     return list(set(found_skills))
