@@ -303,7 +303,46 @@ class TestFlaskApp(TestCase):
             'user_role': 'invalidrole'
         })
         self.assertIn(b'Select your role', response.data)
+    
+    def test_login_page_load(self):
+        response = self.client.get('/login')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_admin_login_page(self):
+        response = self.client.get('/login')
+        self.assertEqual(response.status_code, 200)
 
+    def test_home_route(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_skill_check(self):
+        response = self.client.get('/student/job_profile_analyze')
+        self.assertIn(response.status_code, [200, 302])
+
+    def test_signup_form_validation(self):
+        response = self.client.post('/signup', data={})
+        self.assertEqual(response.status_code, 400) 
+
+    def test_login_with_empty_fields(self):
+        # Test submitting the login form with empty fields
+        data = {
+            'username': '',
+            'password': '',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_username_too_short(self):
+        # Test submitting the form with a username less than 4 characters
+        response = self.client.post('/login', data={
+            'name': 'Test User',
+            'username': 'abc',
+            'password': 'testpassword123',
+            'user_role': 'student'
+        })
+        self.assertIn(b'Username must be between 4 and 20 characters', response.data)
 
 if __name__ == '__main__':
     unittest.main()

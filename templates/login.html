@@ -58,6 +58,12 @@
         text-decoration: underline;
         color: #d32f2f;
     }
+
+    .error-message {
+        font-size: 0.85rem;
+        margin-top: 5px;
+        color: red;
+    }
 </style>
 
 <div class="d-flex justify-content-center align-items-center vh-100">
@@ -79,7 +85,7 @@
                 {% endwith %}
                 
                 <!-- Login Form -->
-                <form method="POST" action="{{ url_for('login') }}">
+                <form method="POST" action="{{ url_for('login') }}" id="login-form">
                     <!-- Username Field -->
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
@@ -90,6 +96,7 @@
                             name="username" 
                             placeholder="Enter your username" 
                             required>
+                        <span class="error-message" id="usernameMessage"></span>
                     </div>
                     
                     <!-- Password Field -->
@@ -102,6 +109,7 @@
                             name="password" 
                             placeholder="Enter your password" 
                             required>
+                        <span class="error-message" id="passwordMessage"></span>
                     </div>
                     
                     <!-- User Role Field -->
@@ -135,4 +143,57 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Real-time validation for the 'Username' field
+    document.getElementById("username").addEventListener("input", function () {
+        const username = document.getElementById("username").value;
+        const usernameMessage = document.getElementById("usernameMessage");
+
+        if (username.length < 4) {
+            usernameMessage.textContent = "Username must be at least 4 characters long.";
+        } else if (username.length > 20) {
+            usernameMessage.textContent = "Username cannot exceed 20 characters.";
+        } else {
+            usernameMessage.textContent = "";
+        }
+    });
+
+    // Real-time validation for the 'Password' field
+    document.getElementById("password").addEventListener("input", function () {
+        const password = document.getElementById("password").value;
+        const passwordMessage = document.getElementById("passwordMessage");
+
+        if (password.length < 8) {
+            passwordMessage.textContent = "Password must be at least 8 characters long.";
+        } else if (password.length > 20) {
+            passwordMessage.textContent = "Password cannot exceed 20 characters.";
+        } else {
+            passwordMessage.textContent = "";
+        }
+    });
+
+    // Submit button validation (checking all fields)
+    document.getElementById("login-form").addEventListener("submit", function (event) {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        let valid = true;
+
+        if (username.length < 4 || username.length > 20) {
+            valid = false;
+            document.getElementById("usernameMessage").textContent = "Username must be between 4 and 20 characters.";
+        }
+
+        if (password.length < 8 || password.length > 20) {
+            valid = false;
+            document.getElementById("passwordMessage").textContent = "Password must be between 8 and 20 characters.";
+        }
+
+        if (!valid) {
+            event.preventDefault();  // Prevent form submission if validation fails
+        }
+    });
+</script>
+
 {% endblock %}
