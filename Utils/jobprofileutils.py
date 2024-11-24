@@ -35,7 +35,27 @@ def preprocess_text(text):
     
     return tokens
 
+allSkills = [
+    # Technical Skills
+    "Python", "Java", "JavaScript", "C", "C++", "R", "Go", "PHP", "Ruby", "SQL", "MySQL", 
+    "MongoDB", "Scala", "Hadoop", "Apache Spark", "Flask", "Django", "React", "ReactJS", 
+    "Node.js", "TensorFlow", "Keras", "PyTorch", "FastAI", "NLTK", "Scikit-learn", "NumPy", 
+    "Pandas", "Linux", "HTML", "CSS", "TypeScript", "Swift", "Objective-C", 
+    "Kubernetes", "Docker", "AWS", "Azure", "Git", "GraphQL", 
+    "Tableau", "Power BI", "Google Analytics", "SQL Server", "Oracle", "Looker", 
+
+    # Data-Oriented Skills
+    "Machine Learning", "Data Science", "AI", "Data Visualization", "Data Analysis", 
+
+    # Non-Technical Skills
+    "Communication", "Teamwork", "Problem Solving", "Leadership", "Project Management", 
+    "Time Management", "Critical Thinking", "Creativity", "Adaptability", "Interpersonal Skills", 
+    "Conflict Resolution", "Negotiation", "Customer Service", "Analytical Skills", 
+    "Presentation Skills", "Research", "Collaboration", "Emotional Intelligence"
+]
+
 def extract_skills(text):
+    print(text)
     doc = nlp(text)
     skills = []
     for token in doc:
