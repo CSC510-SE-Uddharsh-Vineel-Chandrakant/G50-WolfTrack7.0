@@ -5,7 +5,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10211710.svg)](https://doi.org/10.5281/zenodo.14026723)
 
 
-[![Manual Build](https://img.shields.io/github/actions/workflow/status/TeamBenign/WolfTrack6.0/main.yml)](https://github.com/TeamBenign/WolfTrack6.0/actions)
+[![Manual Build](https://img.shields.io/github/actions/workflow/status/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/main.yml)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions)
 [![codecov](https://codecov.io/github/TeamBenign/WolfTrack5.0/graph/badge.svg?token=DI0W2ZSR9R)](https://codecov.io/github/TeamBenign/WolfTrack5.0)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 ![GitHub language count](https://img.shields.io/github/languages/count/TeamBenign/WolfTrack6.0)
