@@ -14,6 +14,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/TeamBenign/WolfTrack6.0)](https://github.com/TeamBenign/WolfTrack6.0/issues)
 [![GitHub-closed-issues](https://img.shields.io/github/issues-closed/TeamBenign/WolfTrack6.0)](https://github.com/TeamBenign/WolfTrack6.0/issues?q=is%3Aissue+is%3Aclosed)
 ![Last Commit](https://img.shields.io/github/last-commit/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)
+[![Style Checker](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/style_checker.yml/badge.svg)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/style_checker.yml)
+[![Syntax Checker](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/syntax_checker.yml/badge.svg)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/syntax_checker.yml)
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- TABLE OF CONTENTS -->
