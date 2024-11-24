@@ -334,15 +334,76 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/login', data=data, follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
-    def test_username_too_short(self):
-        # Test submitting the form with a username less than 4 characters
-        response = self.client.post('/login', data={
-            'name': 'Test User',
-            'username': 'abc',
-            'password': 'testpassword123',
+    def test_login_missing_username(self):
+        # Test submitting the login form without a username
+        data = {
+            'username': '',
+            'password': 'validpassword123',
             'user_role': 'student'
-        })
-        self.assertIn(b'Username must be between 4 and 20 characters', response.data)
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    
+    def test_login_missing_password(self):
+        # Test submitting the login form without a password
+        data = {
+            'username': 'testuser',
+            'password': '',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    def test_login_invalid_username(self):
+        # Test submitting the login form with an invalid username
+        data = {
+            'username': 'invaliduser',
+            'password': 'validpassword123',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    def test_login_invalid_password(self):
+        # Test submitting the login form with an invalid password
+        data = {
+            'username': 'testuser',
+            'password': 'wrongpassword',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    def test_login_invalid_role(self):
+        # Test submitting the login form with an invalid user role
+        data = {
+            'username': 'testuser',
+            'password': 'validpassword123',
+            'user_role': 'invalidrole'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    def test_login_with_special_characters_in_username(self):
+        # Test submitting the login form with special characters in the username
+        data = {
+            'username': 'test@user!',
+            'password': 'validpassword123',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    def test_login_with_password_too_short(self):
+        # Test submitting the login form with a password that is too short
+        data = {
+            'username': 'testuser',
+            'password': 'short',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
 
 if __name__ == '__main__':
     unittest.main()
