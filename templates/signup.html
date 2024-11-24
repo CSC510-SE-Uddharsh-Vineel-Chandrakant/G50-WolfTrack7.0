@@ -3,19 +3,23 @@
 {% block content %}
 <style>
     body {
-        background: linear-gradient(to bottom, #ffe6e6, #ffffff); /* Soft reddish-white gradient */
+        background-image: url('https://media.istockphoto.com/id/1349390515/photo/paperless-workplace-idea-e-signing-electronic-signature-document-management-businessman-signs.jpg?s=612x612&w=0&k=20&c=EyQl13diegNV5DVLnb0krcAcRDhL7NiSA7IEVImZs6Q='); 
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
         font-family: Arial, sans-serif;
+        color: #333;
     }
 
     .card {
-        border-radius: 10px;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for card */
         margin-top: 50px;
     }
 
     .card-title {
-        color: #ff4d4d; /* Reddish tone for headings */
+        color: #ff4d4d;
         font-weight: bold;
     }
 
@@ -24,10 +28,11 @@
         border: 1px solid #ced4da;
         border-radius: 25px;
         transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .form-control:focus, .form-select:focus {
-        box-shadow: 0px 0px 8px rgba(255, 77, 77, 0.5); /* Soft red focus effect */
+        box-shadow: 0px 0px 8px rgba(255, 77, 77, 0.5);
         border-color: #ff4d4d;
     }
 
@@ -41,7 +46,7 @@
     }
 
     button:hover {
-        background-color: #e60000; /* Darker red on hover */
+        background-color: #e60000;
     }
 
     .error-message {
@@ -53,6 +58,13 @@
     /* For a consistent card and form layout */
     .container {
         max-width: 600px;
+    }
+
+    /* Adjustments for larger screens */
+    @media (min-width: 768px) {
+        .row {
+            justify-content: center;
+        }
     }
 </style>
 
