@@ -338,9 +338,9 @@ Please refer to the [CONTRIBUTING.md](https://github.com/CSC510-SE-Uddharsh-Vine
 
 <table>
   <tr>
-    <td align="center"><a href="[https://github.com/shonilbhide](https://github.com/nazmul-me)"><img src="https://avatars.githubusercontent.com/u/8447597?v=4" width="75px;" alt=""/><br /><sub><b>Md. Nazmul Hossain</b></sub></a></td>
-    <td align="center"><a href="https://github.com/KKGanguly"><img src="https://avatars.githubusercontent.com/u/5454452?v=4" width="75px;" alt=""/><br /><sub><b>Kishan Kumar Ganguly</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/rcb1409"><img src="https://avatars.githubusercontent.com/u/179258991?v=4" width="75px;" alt=""/><br /><sub><b>Ravi Chandu Bollepalli</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/vineel31"><img src="https://avatars.githubusercontent.com/vineel31" width="100px;" alt=""/><br /><b>Sai Vineel Reddy Marreddy</b></a></td>
+    <td align="center"><a href="https://github.com/konetichandrakant"><img src="https://avatars.githubusercontent.com/konetichandrakant" width="100px;" alt=""/><br /><b>Chandrakanth Koneti</b></a><br /></td>
+    <td align="center"><a href="https://github.com/UddharshV"><img src="https://avatars.githubusercontent.com/UddharshV" width="100px;" alt=""/><br /><b> Uddharsh Vasili</b></a><br /></td>
   </tr>
 </table>
 
