@@ -1,41 +1,15 @@
 from flask import Flask, render_template, request
 import nltk
-from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from nltk.stem import WordNetLemmatizer
-import string
-import spacy
-# python -m spacy download en_core_web_md
-# Load the spaCy model with word vectors
+from nltk.corpus import stopwords
 
+# Ensure necessary NLTK resources are downloaded
+nltk.download('punkt')
+nltk.download('stopwords')
 
 app = Flask(__name__)
 
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nlp = spacy.load("en_core_web_md")
-
-lemmatizer = WordNetLemmatizer()
-sample_skills = {'python', 'java', 'javascript', 'communication', 'teamwork', 'problem-solving', 'leadership', 'data analysis','AI','ML','c','r', 'c++','hadoop','scala','flask','pandas','spark','scikit-learn',
-                'numpy','php','sql','mysql','css','mongdb','nltk','fastai' , 'keras', 'pytorch','tensorflow','linux','Ruby','django','react','reactjs','ai','ui','tableau'}
-def preprocess_text(text):
-    # Tokenize the text
-    tokens = word_tokenize(text.lower())
-    
-    # Remove punctuation
-    tokens = [token for token in tokens if token not in string.punctuation]
-    
-    # Remove stopwords
-    stop_words = set(stopwords.words('english'))
-    tokens = [token for token in tokens if token not in stop_words]
-    
-    # Lemmatization
-    tokens = [lemmatizer.lemmatize(token) for token in tokens]
-    
-    return tokens
-
-allSkills = [
+known_skills = [
     # Technical Skills
     "Python", "Java", "JavaScript", "C", "C++", "R", "Go", "PHP", "Ruby", "SQL", "MySQL", 
     "MongoDB", "Scala", "Hadoop", "Apache Spark", "Flask", "Django", "React", "ReactJS", 
@@ -54,15 +28,34 @@ allSkills = [
     "Presentation Skills", "Research", "Collaboration", "Emotional Intelligence"
 ]
 
-def extract_skills(text):
-    print(text)
-    doc = nlp(text)
-    skills = []
-    for token in doc:
-        # Check if the token is similar to any of the sample skills
-        for skill in sample_skills:
-            similarity = nlp(skill).similarity(token)
-            if similarity > 0.7:  # Adjust the threshold as needed
-                skills.append(token.text)
-                break  # Move to the next token once a similar skill is found
-    return list(set(skills))
+def to_camel_case(string):
+    """Convert a string to camel case."""
+    words = string.split()
+    return words[0].lower() + ''.join(word.capitalize() for word in words[1:])
+
+def extract_skills(description):
+    """Extract skills from a description based on a list of known skills."""
+    # Tokenize the description
+    tokens = word_tokenize(description.lower())
+    
+    # Get English stop words
+    stop_words = set(stopwords.words('english'))
+    
+    # Filter out stop words and create a unique set of tokens
+    unique_terms = set(token for token in tokens if token.isalnum() and token not in stop_words)
+    
+    # Initialize an array to hold found skills
+    found_skills = []
+    
+    # Check for known skills in the description
+    for skill in known_skills:
+        lower_case_skill = skill.lower()
+        
+        # Check for exact matches in the tokenized description
+        if lower_case_skill in unique_terms:
+            found_skills.append(to_camel_case(skill))
+        # Also check if the skill is present as a phrase
+        elif lower_case_skill in description.lower():
+            found_skills.append(to_camel_case(skill))
+    
+    return list(set(found_skills))
