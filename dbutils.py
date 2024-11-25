@@ -147,6 +147,31 @@ def get_resumes_by_user_name(user_name, db):
     print('rows ->>>', rows)
     return rows
 
+def save_resume_metadata(user_name, file_name, position, db_path):
+    """
+    Save resume metadata into the database.
+
+    :param user_name: Username of the uploader.
+    :param file_name: Name of the uploaded file.
+    :param position: Position associated with the resume (optional).
+    :param db_path: Path to the SQLite database.
+    """
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+
+    try:
+        # Insert the resume metadata
+        cursor.execute("""
+            INSERT INTO resumes (username, fileName, position)
+            VALUES (?, ?, ?);
+        """, (user_name, file_name, position))
+        conn.commit()
+        print(f"Resume metadata for {file_name} saved successfully.")
+    except sqlite3.IntegrityError as e:
+        print(f"Error: {e}")
+    finally:
+        conn.close()
 
 
 
