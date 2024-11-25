@@ -315,7 +315,8 @@ def upload():
     
     user = find_user(str(user),database)
 
-    return render_template("home.html", data=data, upcoming_events=upcoming_events, user=user)
+    # return render_template("home.html", data=data, upcoming_events=upcoming_events, user=user)
+    return redirect(url_for('student'))
 
 @app.route('/student/analyze_resume', methods=['GET'])
 def view_ResumeAna():
