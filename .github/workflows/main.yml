@@ -2,9 +2,9 @@ name: Python CI with Coverage and Linting
 
 on:
   push:
-    branches: [ Main ]
+    branches: [ New_G50-WolfTrack7.0 ]
   pull_request:
-    branches: [ Main ]
+    branches: [ New_G50-WolfTrack7.0 ]
 
 jobs:
   build:
@@ -36,7 +36,7 @@ jobs:
 
     # Step 5: Upload Coverage to Codecov
     - name: Upload Coverage to Codecov
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v4
       with:
         files: ./coverage.xml
         flags: unittests
