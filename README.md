@@ -61,23 +61,26 @@ To demonstrate our application's functionality and showcase its working examples
 
 This release brings significant updates designed to enhance user experience, functionality, and reliability. Here’s a breakdown of the latest features:
 
-## 🔍 Expanded Test Coverage
-- **Increased Test Cases:** We've broadened our test coverage to improve stability, ensuring a seamless user experience and greater reliability across all features.
+## 🎨 UI Enhancements
+- **Refined User Interaction:** Improved user-friendly messages and real-time validation to guide users seamlessly through the login and signup processes.
+- **Modernized Design:** Applied a cleaner, responsive layout with improved form alignment, consistent typography, and intuitive input fields for an enhanced user experience.
+- **Modular Components:** Developed reusable and modular UI elements for login and signup pages, ensuring consistency across the application and simplifying future updates.
 
-## 🎨 UI & User Experience Improvements
-- **Refined Login & Registration Pages:** Enhanced user-friendly messages guide users smoothly through login and sign-up processes.
-- **Redesigned Home Page:** The home page has been given a modern look, improving navigation and engagement.
-- **Modularized UI Components:** The new modular design makes the interface more responsive and easier to maintain, setting up for future scalability.
+## 📄 Resume Management Features
+- **Resume Upload:** Implemented a feature allowing users to securely upload their resumes, ensuring data integrity and privacy.
+- **Resume Download:** Enabled users to download their latest uploaded resume anytime, providing seamless access.
 
-## 🔒 Authentication & Authorization Fixes
-- Resolved key bugs in authentication and authorization to ensure a secure and reliable experience.
+## 🛡️ Improved security with Input Validations
+- **Login Validation:** Strengthened input validation for login fields to prevent injection attacks and ensure secure data handling.
+- **Signup Validation:** Enhanced checks on signup inputs, including password strength, email format, and mandatory field requirements, to improve security and user experience.
+
+## 🔍 Improved Test Coverage
+- **More Coverage:** We expanded test coverage to enhance stability, providing a smoother user experience and increased reliability for all features.
+
 
 ## 📈 Enhanced Job Scraping & Search Filters
 - **Job Scraping with Salary Information:** Jobs now display salary details, giving users more insights to make informed decisions.
 - **Improved Search Filters:** More precise filters allow users to find exactly what they’re looking for, faster.
-
-## 🤖 AI-Powered Resume Feedback
-- **Google Gemini-Based AI Feedback:** Now, AI feedback covers not only resume content but also provides guidance on structure and design, ensuring a standout resume.
 
 
 This release makes the platform more powerful, user-friendly, and equipped to deliver a top-notch experience. Get ready to impress!
