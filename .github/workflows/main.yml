@@ -1,34 +1,49 @@
-name: Python application
+name: Python CI with Coverage and Linting
+
 on:
   push:
     branches: [ Main ]
   pull_request:
     branches: [ Main ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
+    # Step 1: Checkout repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Python
     - name: Set up Python 3.9
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: 3.9
+
+    # Step 3: Install dependencies
     - name: Install dependencies
       run: |
         python3 -m pip install --upgrade pip
         python3 -m pip install -r requirements.txt
-    - name: Generate Report
+
+    # Step 4: Run Unit Tests with Pytest and Generate Coverage
+    - name: Run Unit Tests and Generate Coverage
       run: |
-        python3 -m coverage run UnitTesting/test_app.py
-        python3 -m coverage run UnitTesting/test_dbutils.py
-        python3 -m coverage run UnitTesting/test_jobprofileutils.py
-        python3 -m coverage run UnitTesting/test_loginutils.py
-        python3 -m coverage report -i
+        pytest UnitTesting --cov=. --cov-report=xml
+      env:
+        PYTHONPATH: .
+
+    # Step 5: Upload Coverage to Codecov
     - name: Upload Coverage to Codecov
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v3
       with:
+        files: ./coverage.xml
         flags: unittests
         fail_ci_if_error: false
+        token: ${{ secrets.CODECOV_TOKEN }}
+
+    # Step 6: Lint with flake8
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
