@@ -6,7 +6,7 @@
 
 
 [![Manual Build](https://img.shields.io/github/actions/workflow/status/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/main.yml)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions)
-[![codecov](https://codecov.io/gh/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/graph/badge.svg?token=2XAYWJXLOM)](https://codecov.io/gh/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)
+[![codecov](https://codecov.io/gh/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/branch/New_G50-WolfTrack7.0/graph/badge.svg?token=2XAYWJXLOM)](https://codecov.io/gh/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 ![GitHub language count](https://img.shields.io/github/languages/count/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/pulls)
