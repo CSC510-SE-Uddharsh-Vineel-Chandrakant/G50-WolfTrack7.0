@@ -26,7 +26,7 @@ from flask import send_file, current_app as app
 from Controller.gemini_pipeline import get_gemini_feedback
 from Controller.data import data, upcoming_events, profile
 from Controller.send_email import *
-from dbutils import add_job, create_tables, add_client, get_resumes_by_user_name, delete_job_application_by_job_id ,find_user, get_job_applications, get_job_applications_by_status, update_job_application_by_id, get_user_by_username_role
+from dbutils import add_job, create_tables, add_client, get_resumes_by_user_name, delete_job_application_by_job_id ,find_user, get_job_applications, get_job_applications_by_status, save_resume_metadata, update_job_application_by_id, get_user_by_username_role
 from login_utils import login_user
 import requests
 import urllib.parse
@@ -294,7 +294,7 @@ filename=""
 @app.route("/student/upload", methods=['POST'])
 def upload():
     APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-    target = os.path.join(APP_ROOT, 'Controller\\resume\\')
+    target = os.path.join(APP_ROOT, 'Controller/resume/')
 
     if not os.path.isdir(target):
         os.mkdir(target)
@@ -305,11 +305,12 @@ def upload():
         filename = file.filename
         destination = "/".join([target, filename])
         file.save(destination)
+        save_resume_metadata(session['user_name'], filename, destination, database)
 
     user = request.form['user_id']
     
     user = find_user(str(user),database)
-
+    
     return render_template("home.html", data=data, upcoming_events=upcoming_events, user=user)
 
 @app.route('/student/analyze_resume', methods=['GET'])
@@ -322,14 +323,15 @@ def view_companies_list():
     return render_template('companies_list.html')
 
 
-@app.route('/student/analyze_resume', methods=['POST'])
-def analyze_resume():
-    jobtext = request.form['job_description']
-    os.chdir(os.getcwd()+"/Controller/resume/")
-    output = resume_analyzer(jobtext, str(os.listdir(os.getcwd())[0]))
-    os.chdir("..")
-    os.chdir("..")
-    return render_template('resume_analyzer.html', data = output)
+# @app.route('/student/analyze_resume', methods=['POST'])
+# def analyze_resume():
+#     jobtext = request.form['job_description']
+#     os.chdir(os.getcwd()+"/Controller/resume/")
+#     output = resume_analyzer(jobtext, str(os.listdir(os.getcwd())[0]))
+#     resumes = get_resumes_by_user_name(session['user_name'], database)
+#     os.chdir("..")
+#     os.chdir("..")
+#     return render_template('resume_analyzer.html',resumes = resumes)
 
 @app.route("/student/display/", methods=['POST','GET'])
 def display():
