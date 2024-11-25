@@ -87,7 +87,7 @@ def add_job(data,db):
     print('Data==>', data)
     cursor = conn.cursor()
     # Inserting rows into the 'jobs' table
-    cursor.execute("INSERT INTO jobs (company_name, location, job_position, salary, status) VALUES (?, ?, ?, ?, ?)", data)
+    cursor.execute("INSERT INTO jobs (company_name, location, job_position, salary, status, user_name) VALUES (?, ?, ?, ?, ?, ?)", data)
     conn.commit()
     conn.close()
 

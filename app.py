@@ -190,7 +190,7 @@ def tos():
     filepath = workingdir + '/static/files/'
     return send_from_directory(filepath, 'resume2.pdf')
 
-@app.route("/add_job_application", methods=['POST'])
+@app.route("/student/add_job_application", methods=['POST'])
 def add_job_application():
     if request.method == 'POST':
         company = request.form['company']
@@ -198,15 +198,20 @@ def add_job_application():
         jobposition = request.form['jobposition']
         salary = request.form['salary']
         status = request.form['status']
-        user_id = request.form['user_id']
+        user_name = session['user_name']
 
-        job_data = [company, location, jobposition, salary, status]
+        job_data = [company, location, jobposition, salary, status, user_name]
         # Perform actions with the form data, for instance, saving to the database
         add_job(job_data,database)
-
+        
         flash('Job Application Added!')
-        # Redirect to a success page or any relevant route after successful job addition
-        return redirect(url_for('student', data=user_id))
+
+        # Fetch the updated list of job applications from the database
+        jobapplications = get_job_applications(user_name,database)  # Replace with actual database fetch function
+
+        # Redirect to the same page with updated data
+        # render_template('home.html', jobapplications=jobapplications, user=session['user_name'])
+        return redirect(url_for('student'))
 
 @app.route('/student/update_job_application',methods=['GET','POST'])
 def update_job_application():
