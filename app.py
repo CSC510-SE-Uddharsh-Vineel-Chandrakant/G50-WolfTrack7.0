@@ -277,11 +277,17 @@ def send_Profile():
 @app.route('/student/job_profile_analyze', methods=['GET', 'POST'])
 def job_profile_analyze():
     if request.method == 'POST':
-        job_profile = request.form['job_profile']
-        skills = extract_skills(job_profile)
-        print("\n\n\n\n\n",skills)
-        skills_text = ', '.join(skills)
-        return render_template('job_profile_analyze.html', skills_text=skills_text, job_profile=job_profile)
+        job_profile = request.form.get('job_profile', '').strip()
+        try:
+            # Validate and extract skills
+            skills = extract_skills(job_profile)
+            skills_text = ', '.join(skills)
+            return render_template('job_profile_analyze.html', skills_text=skills_text, job_profile=job_profile)
+        except ValueError as e:
+            # Handle empty or invalid input error
+            error_message = str(e)
+            return render_template('job_profile_analyze.html', skills_text='', job_profile=job_profile, error_message=error_message)
+    # For GET requests, render the default page
     return render_template('job_profile_analyze.html', skills_text='', job_profile='')
 
 filename=""
@@ -408,7 +414,7 @@ def search():
     if(job_type=="part_time"): query+="&part_time=1"
     if(len(company)>0): query+="&company="+company
 
-    adzuna_url = f"https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=575e7a4b&app_key=35423835cbd9428eb799622c6081ffed&"+query
+    adzuna_url = f"https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=ff3aac23&app_key=ba74da995e25751969e995bcc4a86799&"+query
     try:
         response = requests.get(adzuna_url)
         if response.status_code == 200:

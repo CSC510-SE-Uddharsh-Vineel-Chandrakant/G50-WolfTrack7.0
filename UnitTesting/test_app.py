@@ -238,6 +238,173 @@ class TestFlaskApp(TestCase):
         # self.assert200(response)  
         self.assertEqual(response.status_code, 302)
 
+    def test_signup_page_load(self):
+        # Test if the signup page loads correctly (GET request)
+        response = self.client.get('/signup')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Sign Up to WolfTrack', response.data)
+
+    def test_username_too_short(self):
+        # Test submitting the form with a username less than 4 characters
+        response = self.client.post('/signup', data={
+            'name': 'Test User',
+            'username': 'abc',
+            'password': 'testpassword123',
+            'user_role': 'student'
+        })
+        self.assertIn(b'Username must be between 4 and 20 characters', response.data)
+
+    def test_password_too_short(self):
+        # Test submitting the form with a password less than 8 characters
+        response = self.client.post('/signup', data={
+            'name': 'Test User',
+            'username': 'testuser',
+            'password': 'short',
+            'user_role': 'student'
+        })
+        self.assertIn(b'Password must be between 8 and 20 characters', response.data)
+
+    def test_password_too_long(self):
+        # Test submitting the form with a password more than 20 characters
+        response = self.client.post('/signup', data={
+            'name': 'Test User',
+            'username': 'testuser',
+            'password': 'a' * 21,
+            'user_role': 'student'
+        })
+        self.assertIn(b'Password must be between 8 and 20 characters', response.data)
+
+    def test_missing_password(self):
+        # Test submitting the form without a password
+        response = self.client.post('/signup', data={
+            'name': 'Test User',
+            'username': 'testuser',
+            'password': '',
+            'user_role': 'student'
+        })
+        self.assertIn(b'Password must be between 8 and 20 characters', response.data)
+
+    def test_missing_user_role(self):
+        # Test submitting the form without selecting a user role
+        response = self.client.post('/signup', data={
+            'name': 'Test User',
+            'username': 'testuser',
+            'password': 'validpassword123',
+            'user_role': ''
+        })
+        self.assertIn(b'Select your role', response.data)
+
+    def test_invalid_user_role(self):
+        # Test submitting an invalid user role
+        response = self.client.post('/signup', data={
+            'name': 'Test User',
+            'username': 'testuser',
+            'password': 'validpassword123',
+            'user_role': 'invalidrole'
+        })
+        self.assertIn(b'Select your role', response.data)
+    
+    def test_login_page_load(self):
+        response = self.client.get('/login')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_admin_login_page(self):
+        response = self.client.get('/login')
+        self.assertEqual(response.status_code, 200)
+
+    def test_home_route(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_skill_check(self):
+        response = self.client.get('/student/job_profile_analyze')
+        self.assertIn(response.status_code, [200, 302])
+
+    def test_signup_form_validation(self):
+        response = self.client.post('/signup', data={})
+        self.assertEqual(response.status_code, 400) 
+
+    def test_login_with_empty_fields(self):
+        # Test submitting the login form with empty fields
+        data = {
+            'username': '',
+            'password': '',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_login_missing_username(self):
+        # Test submitting the login form without a username
+        data = {
+            'username': '',
+            'password': 'validpassword123',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    
+    def test_login_missing_password(self):
+        # Test submitting the login form without a password
+        data = {
+            'username': 'testuser',
+            'password': '',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    def test_login_invalid_username(self):
+        # Test submitting the login form with an invalid username
+        data = {
+            'username': 'invaliduser',
+            'password': 'validpassword123',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    def test_login_invalid_password(self):
+        # Test submitting the login form with an invalid password
+        data = {
+            'username': 'testuser',
+            'password': 'wrongpassword',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    def test_login_invalid_role(self):
+        # Test submitting the login form with an invalid user role
+        data = {
+            'username': 'testuser',
+            'password': 'validpassword123',
+            'user_role': 'invalidrole'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    def test_login_with_special_characters_in_username(self):
+        # Test submitting the login form with special characters in the username
+        data = {
+            'username': 'test@user!',
+            'password': 'validpassword123',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    def test_login_with_password_too_short(self):
+        # Test submitting the login form with a password that is too short
+        data = {
+            'username': 'testuser',
+            'password': 'short',
+            'user_role': 'student'
+        }
+        response = self.client.post('/login', data=data, follow_redirects=True)
+        self.assert200(response)
+
 if __name__ == '__main__':
     unittest.main()
    
