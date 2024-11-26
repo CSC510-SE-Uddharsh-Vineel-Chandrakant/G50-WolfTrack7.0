@@ -14,7 +14,6 @@
 [![GitHub issues](https://img.shields.io/github/issues/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)](https://github.com/TeamBenign/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)
 [![GitHub-closed-issues](https://img.shields.io/github/issues-closed/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/issues?q=is%3Aissue+is%3Aclosed)
 ![Last Commit](https://img.shields.io/github/last-commit/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)
-[![Style Checker](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/style_checker.yml/badge.svg)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/style_checker.yml)
 [![Syntax Checker](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/syntax_checker.yml/badge.svg)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/syntax_checker.yml)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 
