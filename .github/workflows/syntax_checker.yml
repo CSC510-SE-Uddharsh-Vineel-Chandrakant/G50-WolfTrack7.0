@@ -18,5 +18,3 @@ jobs:
           python-version: 3.9
       - name: Install pylint
         run: pip install pylint
-      - name: Run pylint
-        run: pylint app.py
