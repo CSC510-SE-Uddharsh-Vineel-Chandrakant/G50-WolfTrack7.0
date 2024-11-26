@@ -26,7 +26,7 @@ from flask import send_file, current_app as app
 from Controller.gemini_pipeline import get_gemini_feedback
 from Controller.data import data, upcoming_events, profile
 from Controller.send_email import *
-from dbutils import add_job, create_tables, add_client, get_resumes_by_user_name, delete_job_application_by_job_id ,find_user, get_job_applications, get_job_applications_by_status, save_resume_metadata, update_job_application_by_id, get_user_by_username_role
+from dbutils import add_job, add_job_for_user, add_new_job, create_tables, add_client, get_all_jobs, get_job_by_details, get_job_by_id, get_resumes_by_user_name, delete_job_application_by_job_id ,find_user, get_job_applications, get_job_applications_by_status, save_resume_metadata, update_job_application_by_id, get_user_by_username_role
 from login_utils import login_user
 import requests
 import urllib.parse
@@ -196,11 +196,9 @@ def add_job_application():
         company = request.form['company']
         location = request.form['location']
         jobposition = request.form['jobposition']
-        salary = request.form['salary']
-        status = request.form['status']
         user_id = request.form['user_id']
 
-        job_data = [company, location, jobposition, salary, status]
+        job_data = [company, location, jobposition]
         # Perform actions with the form data, for instance, saving to the database
         add_job(job_data,database)
 
@@ -215,12 +213,10 @@ def update_job_application():
         company = request.form['company']
         location = request.form['location']
         jobposition = request.form['jobposition']
-        salary = request.form['salary']
-        status = request.form['status']
         user_name = session['user_name']
 
         # Perform the update operation
-        update_job_application_by_id( job_id, company, location, jobposition, salary, status, database)  # Replace this with your method to update the job
+        update_job_application_by_id( job_id, company, location,jobposition, database)  # Replace this with your method to update the job
 
         flash('Job Application Updated!')
         # Redirect to a success page or any relevant route after successful job update
@@ -434,6 +430,55 @@ def search():
             return f"Error fetching job listings: {response.status_code}"
     except requests.RequestException as e:
         return f"Error: {e}"
+    
+@app.route('/list-all-jobs', methods=['GET'])
+def list_all_jobs():
+    """
+    Fetch all available jobs to populate the dropdown.
+    """
+    try:
+        # Fetch all jobs from the database
+        jobs = get_all_jobs(database)
+        return jsonify(jobs), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route('/add-job-to-current-user', methods=['POST'])
+def add_job_to_current_user():
+    """
+    Add a job to the current user. Insert the job into the database if it doesn't exist.
+    """
+    data = request.get_json()
+    job_title = data.get('title')
+    company_name = data.get('company')
+    location = data.get('location')
+    salary = data.get('salary')
+    status = "Open"
+
+    current_user =  session['user_name']  # Replace with actual logic to get the logged-in user's username
+
+    if not job_title or not company_name or not location:
+        return jsonify({"error": "Incomplete job details provided"}), 400
+
+    try:
+        # Check if the job already exists in the database
+        existing_job = get_job_by_details(job_title, company_name, location, salary,status,database)
+
+        if not existing_job:
+            # Add the job to the jobs table if it doesn't exist
+            job_id = add_new_job(job_title, company_name, location,salary,status,database)
+        else:
+            # Use the existing job's ID
+            job_id = existing_job[0]
+
+        # Associate the job with the current user
+        add_job_for_user(company_name, location, job_title, current_user, salary,status,database)
+
+        return jsonify({"message": "Job successfully added to the current user's applied jobs."}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
