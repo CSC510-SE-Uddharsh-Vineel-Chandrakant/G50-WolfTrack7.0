@@ -16,6 +16,7 @@ import os
 def create_tables(db):
     conn = sqlite3.connect(db)
     cursor = conn.cursor()
+    cursor.execute("PRAGMA journal_mode=WAL;")  # Enable WAL for concurrent access
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS client (
             id INTEGER PRIMARY KEY,
@@ -26,28 +27,27 @@ def create_tables(db):
         )
     ''')
     cursor.execute('''
-    CREATE TABLE IF NOT EXISTS jobs (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        company_name TEXT,
-        location TEXT,
-        job_position TEXT,
-        salary INTEGER,
-        status TEXT
-    )
+        CREATE TABLE IF NOT EXISTS jobs (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            company_name TEXT,
+            location TEXT,
+            job_position TEXT,
+            salary INTEGER,
+            status TEXT
+        )
     ''')
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS resumes (
-            id	INTEGER NOT NULL,
-            username	TEXT NOT NULL,
-            fileName	TEXT NOT NULL,
-            PRIMARY KEY(id AUTOINCREMENT),
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL,
+            fileName TEXT NOT NULL,
+            position TEXT,
             UNIQUE(username, fileName),
             FOREIGN KEY(username) REFERENCES client(username)
         )
     ''')
     conn.commit()
     conn.close()
-
 
 def add_client(value_set,db):
     conn = sqlite3.connect(db)
@@ -99,14 +99,41 @@ def get_job_applications(user_name, db):
     conn.close()
     return rows
 
+def add_job_for_user(company_name, location, job_position, user_name,salary,status, db):
+    """
+    Add a job application for a specific user.
 
-def update_job_application_by_id(job_id, company, location, jobposition, salary, status,db):
+    :param company_name: Name of the company.
+    :param location: Job location.
+    :param job_position: Position applied for.
+    :param salary: Salary offered.
+    :param status: Status of the job application (e.g., Open, Closed).
+    :param user_name: Username of the user associated with the job application.
+    :param db: Path to the SQLite database.
+    """
+    conn = sqlite3.connect(db)
+    cursor = conn.cursor()
+    try:
+        # Insert job data with the associated username
+        cursor.execute("""
+            INSERT INTO jobs (company_name, location, job_position, user_name,salary,status)
+            VALUES (?, ?, ?, ?,?,?);
+        """, (company_name, location, job_position, user_name,salary,status))
+        conn.commit()
+        print(f"Job added successfully for user: {user_name}")
+    except sqlite3.IntegrityError as e:
+        print(f"Error: {e}")
+        raise
+    finally:
+        conn.close()
+
+def update_job_application_by_id(job_id, company, location, jobposition,db):
     conn = sqlite3.connect(db)
     cursor = conn.cursor()
 
     # Update the 'jobs' table based on jobid
-    cursor.execute("UPDATE jobs SET company_name=?, location=?, job_position=?, salary=?, status=? WHERE id=?",
-                   (company, location, jobposition, salary, status, job_id))
+    cursor.execute("UPDATE jobs SET company_name=?, location=?, job_position=? WHERE id=?",
+                   (company, location, jobposition, job_id))
 
     conn.commit()
     conn.close()
@@ -147,6 +174,124 @@ def get_resumes_by_user_name(user_name, db):
     print('rows ->>>', rows)
     return rows
 
+def save_resume_metadata(user_name, file_name, position, db_path):
+    """
+    Save resume metadata into the database.
+
+    :param user_name: Username of the uploader.
+    :param file_name: Name of the uploaded file.
+    :param position: Position associated with the resume (optional).
+    :param db_path: Path to the SQLite database.
+    """
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
 
 
+    try:
+        # Insert the resume metadata
+        cursor.execute("""
+            INSERT INTO resumes (username, fileName, position)
+            VALUES (?, ?, ?);
+        """, (user_name, file_name, position))
+        conn.commit()
+        print(f"Resume metadata for {file_name} saved successfully.")
+    except sqlite3.IntegrityError as e:
+        print(f"Error: {e}")
+    finally:
+        conn.close()
 
+
+def get_all_jobs(db):
+    """
+    Fetch all jobs from the database.
+
+    :param db: Path to the SQLite database.
+    :return: List of all jobs with their details.
+    """
+    conn = sqlite3.connect(db)
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT id, company_name, location, job_position, salary, status 
+        FROM jobs
+    """)
+    jobs = cursor.fetchall()
+    conn.close()
+
+    # Convert jobs to a list of dictionaries for JSON response
+    return [
+        {
+            "id": job[0],
+            "company_name": job[1],
+            "location": job[2],
+            "job_position": job[3],
+            "salary": job[4],
+            "status": job[5]
+        }
+        for job in jobs
+    ]
+
+
+def get_job_by_id(job_id, db):
+    """
+    Fetch job details by job ID.
+
+    :param job_id: ID of the job.
+    :param db: Path to the SQLite database.
+    :return: Tuple containing job details (company_name, location, job_position, salary, status).
+    """
+    conn = sqlite3.connect(db)
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT company_name, location, job_position, salary, status
+        FROM jobs WHERE id = ?
+    """, (job_id,))
+    job = cursor.fetchone()
+    conn.close()
+    return job
+
+def get_job_by_details(job_title, company_name, location,salary,status, db):
+    """
+    Fetch a job by its details (title, company, location).
+
+    :param job_title: Job title.
+    :param company_name: Company name.
+    :param location: Job location.
+    :param db: Path to the SQLite database.
+    :return: Tuple containing job details if found, else None.
+    """
+    conn = sqlite3.connect(db)
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT id, job_position, company_name, location, salary,status 
+        FROM jobs WHERE job_position = ? AND company_name = ? AND location = ? AND salary = ? AND status = ?
+    """, (job_title, company_name, location,salary,status))
+    job = cursor.fetchone()
+    conn.close()
+    return job
+
+
+def add_new_job(job_title, company_name, location,salary,status, db):
+    """
+    Add a new job to the jobs table.
+
+    :param job_title: Job title.
+    :param company_name: Name of the company.
+    :param location: Job location.
+    :param salary: Job salary.
+    :param contract_type: Contract type (e.g., Full-time, Part-time).
+    :param contract_time: Contract time (e.g., Permanent, Temporary).
+    :param description: Job description.
+    :param db: Path to the SQLite database.
+    :return: ID of the newly inserted job.
+    """
+    conn = sqlite3.connect(db)
+    cursor = conn.cursor()
+    try:
+        cursor.execute("""
+            INSERT INTO jobs (job_position, company_name, location,salary,status)
+            VALUES (?, ?, ?,?,?)
+        """, (job_title, company_name, location,salary,status))
+        conn.commit()
+        return cursor.lastrowid  # Return the auto-incremented ID of the new job
+    finally:
+        conn.close()

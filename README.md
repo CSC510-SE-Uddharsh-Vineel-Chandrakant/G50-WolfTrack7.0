@@ -6,7 +6,7 @@
 
 
 [![Manual Build](https://img.shields.io/github/actions/workflow/status/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/main.yml)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions)
-[![codecov](https://codecov.io/github/TeamBenign/WolfTrack5.0/graph/badge.svg?token=DI0W2ZSR9R)](https://codecov.io/github/TeamBenign/WolfTrack5.0)
+[![codecov](https://codecov.io/gh/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/branch/New_G50-WolfTrack7.0/graph/badge.svg?token=2XAYWJXLOM)](https://codecov.io/gh/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 ![GitHub language count](https://img.shields.io/github/languages/count/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/pulls)
@@ -16,6 +16,8 @@
 ![Last Commit](https://img.shields.io/github/last-commit/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)
 [![Style Checker](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/style_checker.yml/badge.svg)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/style_checker.yml)
 [![Syntax Checker](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/syntax_checker.yml/badge.svg)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/syntax_checker.yml)
+[![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
+
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -45,7 +47,7 @@
 
 ## Why WolfTrack 7.0?
 
-WolfTrack6.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack6.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack7.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
+WolfTrack7.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack7.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack7.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
 We offer features like giving suggestions for improvements on your resume, AI-based suggestions, tracking your application, and many more.
 
@@ -306,7 +308,7 @@ It is part of the [Github Workflow Build](https://github.com/CSC510-SE-Uddharsh-
 - [x] Enhanced Job Scraping & Search Filters
 - [x] AI-Powered Resume Feedback
 
-### Phase 7 WolfTrack 6.0:
+### Phase 7 WolfTrack 7.0:
 
 - [ ] Major UI and User Enhancements for the simple looking application
 - [ ] Added download resume feature that allows users to download their latest resume
@@ -314,6 +316,14 @@ It is part of the [Github Workflow Build](https://github.com/CSC510-SE-Uddharsh-
 - [ ] Wider Test Coverage
 - [ ] Added skills extraction
 - [ ] Fixed Bugs in the project
+
+### Future Scope:
+
+- [ ] Implement forgot password functionality
+- [ ] Migrate to a real time data base from local
+- [ ] Enhance with HTTPS Support
+- [ ] Wider Test Coverage
+- [ ] Add MFA/2FA for enhanced security
 ---
 
 ## Developer Support and Updates
