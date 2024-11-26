@@ -18,6 +18,7 @@
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 [![Downloads](https://img.shields.io/github/downloads/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/total)](https://GitHub.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/)
 [![file_count](https://img.shields.io/github/directory-file-count/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)](https://GitHub.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/)
+[![Build Status](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/repobuild.yml/badge.svg)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/repobuild.yml)
 
 
 
