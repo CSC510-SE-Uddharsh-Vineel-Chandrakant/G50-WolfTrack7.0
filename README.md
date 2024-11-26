@@ -4,6 +4,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10211710.svg)](https://doi.org/10.5281/zenodo.14026723)
 
+
 [![Manual Build](https://img.shields.io/github/actions/workflow/status/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/main.yml)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions)
 [![codecov](https://codecov.io/gh/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/branch/New_G50-WolfTrack7.0/graph/badge.svg?token=2XAYWJXLOM)](https://codecov.io/gh/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
@@ -19,8 +20,10 @@
 [![file_count](https://img.shields.io/github/directory-file-count/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0)](https://GitHub.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/)
 [![Build Status](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/repobuild.yml/badge.svg)](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/actions/workflows/repobuild.yml)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
@@ -55,7 +58,7 @@ We offer features like giving suggestions for improvements on your resume, AI-ba
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a video for the WolfTrack 7.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link: [Google Drive Link](https://drive.google.com/drive/u/0/folders/12wHCHCc0qkgh_-oPQci3bGEgrj7ylkFT)
+To demonstrate our application's functionality and showcase its working examples, we have produced a video for the WolfTrack 7.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [Google Drive Link](https://drive.google.com/drive/u/0/folders/12wHCHCc0qkgh_-oPQci3bGEgrj7ylkFT) 
 
 ---
 
@@ -64,34 +67,28 @@ To demonstrate our application's functionality and showcase its working examples
 This release brings significant updates designed to enhance user experience, functionality, and reliability. Here’s a breakdown of the latest features:
 
 ## 🎨 UI Enhancements
-
 - **Refined User Interaction:** Improved user-friendly messages and real-time validation to guide users seamlessly through the login and signup processes.
 - **Modernized Design:** Applied a cleaner, responsive layout with improved form alignment, consistent typography, and intuitive input fields for an enhanced user experience.
 - **Modular Components:** Developed reusable and modular UI elements for login and signup pages, ensuring consistency across the application and simplifying future updates.
 
 ## 📄 Resume Management Features
-
 - **Resume Upload:** Implemented a feature allowing users to securely upload their resumes, ensuring data integrity and privacy.
 - **Resume Download:** Enabled users to download their latest uploaded resume anytime, providing seamless access.
 
 ## 🛡️ Improved security with Input Validations
-
 - **Login Validation:** Strengthened input validation for login fields to prevent injection attacks and ensure secure data handling.
 - **Signup Validation:** Enhanced checks on signup inputs, including password strength, email format, and mandatory field requirements, to improve security and user experience.
 
 ## 🗂️ Job Board Management
-
 - **Enhanced Job Application Workflow:** Added an "Add Job Application" button that opens a modal to capture and store job application details, enabling users to track their applied jobs efficiently.
 - **Core Management Features:** Implemented essential features such as editing, deleting, and filtering job applications, offering users multiple options to organize and trace their applications effortlessly.
 - **Improved Search Functionality:** Refined the job search feature to help users easily identify the companies and locations they've applied to, ensuring seamless navigation and tracking.
 
 ## 🛠️ Extract Skills Feature
-
 - **Optimized Performance:** Enhanced the skill extraction process to handle large job descriptions within seconds, addressing limitations from previous versions.
 - **Expanded Skill Coverage:** Broadened the skill database to identify a wider range of skills, ensuring comprehensive skill extraction.
 
 ## 🔍 Improved Test Coverage
-
 - **More Coverage:** We expanded test coverage to enhance stability, providing a smoother user experience and increased reliability for all features.
 
 This release makes the platform more powerful, user-friendly, and equipped to deliver a top-notch experience. Get ready to impress!
@@ -150,9 +147,8 @@ This platform has been designed keeping in mind any person who is out to seek a 
 - [Microsft Power BI](https://docs.microsoft.com/en-us/power-bi/)
 - [Highcharts](https://www.highcharts.com/)
 - [Adzuna](https://developer.adzuna.com/overview)
-
+  
   The API provides access to rich job market data, including job descriptions, salaries, locations, and other relevant details. This data can be integrated into applications or platforms to offer insights into the job market trends and opportunities.
-
 ---
 
 ## Getting Started & Installation:
@@ -197,47 +193,43 @@ This platform has been designed keeping in mind any person who is out to seek a 
     `http://127.0.0.1:5000/`
 
 - ### Adzuna API Setup
-
-  **Create an Account:**
+**Create an Account:**
 
   Go to the Adzuna Developer portal developer.adzuna.com.
   Sign up for an account to access the API. You might need to provide some basic details about your application, such as the name, purpose, and contact information.
 
 **Get API Credentials:**
 
-Log in to your Adzuna Developer account.
-Find the section to create an API application.
-Create a new application to generate API credentials (usually API keys or tokens). These credentials are necessary to authenticate your requests to the Adzuna API.
+  Log in to your Adzuna Developer account.
+  Find the section to create an API application.
+  Create a new application to generate API credentials (usually API keys or tokens). These credentials are necessary to authenticate your requests to the Adzuna API.
 
 **Change URL:**
 
-Update the adzuna_url in your app.py - using the newly obtained credentials. This updated URL should reflect the API endpoint along with your authentication credentials for accessing the Adzuna API.
+  Update the adzuna_url in your app.py - using the newly obtained credentials. This updated URL should reflect the API endpoint along with your authentication credentials for accessing the Adzuna API.
 
 - ### Google Gemini API Setup
 
 **Create an Account:**  
 Sign up for a [Google Cloud account](https://cloud.google.com/) if you haven’t already.
 
-**Create a Project:**
-
+**Create a Project:**  
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
 2. Create a new project or select an existing one from the project dropdown.
 
-**Enable the Google Gemini API**
+**Enable the Google Gemini API**  
 
 1. In the Cloud Console, go to **APIs & Services > Library**.
 2. Search for **Google Gemini API**.
 3. Click on the API and select **Enable**.
 
-**Set Up API Authentication**
+**Set Up API Authentication**  
 
 **Create API Credentials:**
-
 1. Go to **APIs & Services > Credentials** in the Google Cloud Console.
 2. Click **Create Credentials** and select either **API Key** or **OAuth 2.0 Client ID** (OAuth is recommended for better security).
 
 **Set Up OAuth Consent Screen (for OAuth 2.0):**
-
 1. Configure the consent screen with your app details, including name and contact info.
 2. Set up an **OAuth 2.0 Client ID** with your application type (e.g., Web Application).
 3. Save the **Client ID** and **Client Secret** for later use.
@@ -286,7 +278,7 @@ It is part of the [Github Workflow Build](https://github.com/CSC510-SE-Uddharsh-
 - [x] Comments given by Admin are sent as email to the user
 - [x] Cronjob for pending application deadlines as email notification
 - [x] Implemented web scraping to find relevant jobs according to user's profile and recommend him
-- [x] Daily Goal Check to keep track of number of jobs applied and to apply
+- [x] Daily Goal Check to keep track of number of jobs applied and to apply 
 - [x] Customizable Daily Target Field
 - [x] Parse Resume Document with other extensions
 - [x] Recommend jobs by matching the resume with open jobs
@@ -338,7 +330,6 @@ It is part of the [Github Workflow Build](https://github.com/CSC510-SE-Uddharsh-
 - [ ] Enhance with HTTPS Support
 - [ ] Wider Test Coverage
 - [ ] Add MFA/2FA for enhanced security
-
 ---
 
 ## Developer Support and Updates
@@ -354,6 +345,7 @@ We appreciate your interest and look forward to providing you with the best poss
 This project currently receives no funding.
 
 ---
+
 
 ## Contributions
 
@@ -372,7 +364,6 @@ Please refer to the [CONTRIBUTING.md](https://github.com/CSC510-SE-Uddharsh-Vine
 </table>
 
 ---
-
 ## Acknowledgements
 
 - We would like to express our gratitude 🙏🏻 and a big thank you 😇 to Prof. Dr. Timothy Menzie for giving us the opportunity to get into the shoes of software building and learning new skills and development process throughout the project building.
@@ -380,3 +371,4 @@ Please refer to the [CONTRIBUTING.md](https://github.com/CSC510-SE-Uddharsh-Vine
 - Thank you to the previous team 😊 for a thorough ReadMe and detailed documentation.
 
 ---
+

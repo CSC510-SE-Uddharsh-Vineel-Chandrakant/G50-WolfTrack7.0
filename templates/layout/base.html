@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>WolfTrack - Home</title>
@@ -40,6 +40,8 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <script>
+      
+   
       target = 40;
       applied = 1;
       function setTarget() {
@@ -217,33 +219,23 @@
         <a class="navbar-brand" href="/">WolfTrack</a>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <a
-          href="/student/analyze_resume"
-          style="color: #facaca; text-decoration: none"
+        <a href="/student/analyze_resume" style="color: #facaca; text-decoration: none"
           >Analyze Resume</a
         >
       </ul>
       <ul class="navbar-nav ml-auto">
-        <a
-          href="/student/job_search"
-          style="color: #facaca; text-decoration: none"
+        <a href="/student/job_search" style="color: #facaca; text-decoration: none"
           >Search Jobs Online</a
         >
       </ul>
       <ul class="navbar-nav ml-auto">
-        <a
-          href="/student/job_profile_analyze"
-          style="color: #facaca; text-decoration: none"
+        <a href="/student/job_profile_analyze" style="color: #facaca; text-decoration: none"
           >Skill Check</a
         >
       </ul>
       <ul class="navbar-nav ml-auto">
-        <a
-          href="/student/resume_AI_analyzer"
-          style="color: #facaca; text-decoration: none"
-          >Resume Suggestions</a
-        >
-      </ul>
+        <a href="/student/resume_AI_analyzer" style="color: #facaca; text-decoration: none">Resume Suggestions</a>
+    </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>
@@ -311,14 +303,18 @@
                   <div class="col">
                     <b>NAME: </b>
                   </div>
-                  <div class="col">{{ user[1] }}</div>
+                  <div class="col">
+                    {{ user[1] }}
+                  </div>
                 </div>
-
+  
                 <div class="row">
                   <div class="col">
                     <b>USERNAME: </b>
                   </div>
-                  <div class="col">{{ user[2] }}</div>
+                  <div class="col">
+                    {{ user[2] }}
+                  </div>
                 </div>
                 <div class="row">
                   <div class="col">
@@ -482,7 +478,7 @@
                       <i class="material-icons icon-eye">email</i>
                     </div>
                   </div>
-                  <input type="hidden" name="user_id" value="{{ user[2] }}" />
+                  <input type="hidden" name="user_id" value="{{ user[2] }}">
                   <input
                     type="text"
                     name="emailID"
@@ -509,6 +505,8 @@
           </div>
 
           <br />
+
+
         </div>
       </div>
     </div>

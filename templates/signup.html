@@ -1,230 +1,189 @@
-{% extends "layout/skeleton.html" %} {% block content %}
+{% extends "layout/skeleton.html" %}
+
+{% block content %}
 <style>
-  body {
-    background-image: url("https://media.istockphoto.com/id/1349390515/photo/paperless-workplace-idea-e-signing-electronic-signature-document-management-businessman-signs.jpg?s=612x612&w=0&k=20&c=EyQl13diegNV5DVLnb0krcAcRDhL7NiSA7IEVImZs6Q=");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    font-family: Arial, sans-serif;
-    color: #333;
-  }
-
-  .card {
-    border-radius: 15px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-    background-color: rgba(
-      255,
-      255,
-      255,
-      0.9
-    ); /* Semi-transparent background for card */
-    margin-top: 50px;
-  }
-
-  .card-title {
-    color: #ff4d4d;
-    font-weight: bold;
-  }
-
-  .form-control,
-  .form-select {
-    height: 50px;
-    border: 1px solid #ced4da;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-
-  .form-control:focus,
-  .form-select:focus {
-    box-shadow: 0px 0px 8px rgba(255, 77, 77, 0.5);
-    border-color: #ff4d4d;
-  }
-
-  button {
-    background-color: #ff4d4d;
-    color: white;
-    border-radius: 25px;
-    font-weight: bold;
-    width: 100%;
-    transition: background-color 0.3s ease;
-  }
-
-  button:hover {
-    background-color: #e60000;
-  }
-
-  .error-message {
-    font-size: 0.85rem;
-    margin-top: 5px;
-    color: red;
-  }
-
-  /* For a consistent card and form layout */
-  .container {
-    max-width: 600px;
-  }
-
-  /* Adjustments for larger screens */
-  @media (min-width: 768px) {
-    .row {
-      justify-content: center;
+    body {
+        background-image: url('https://media.istockphoto.com/id/1349390515/photo/paperless-workplace-idea-e-signing-electronic-signature-document-management-businessman-signs.jpg?s=612x612&w=0&k=20&c=EyQl13diegNV5DVLnb0krcAcRDhL7NiSA7IEVImZs6Q='); 
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        font-family: Arial, sans-serif;
+        color: #333;
     }
-  }
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for card */
+        margin-top: 50px;
+    }
+
+    .card-title {
+        color: #ff4d4d;
+        font-weight: bold;
+    }
+
+    .form-control, .form-select {
+        height: 50px;
+        border: 1px solid #ced4da;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-control:focus, .form-select:focus {
+        box-shadow: 0px 0px 8px rgba(255, 77, 77, 0.5);
+        border-color: #ff4d4d;
+    }
+
+    button {
+        background-color: #ff4d4d;
+        color: white;
+        border-radius: 25px;
+        font-weight: bold;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #e60000;
+    }
+
+    .error-message {
+        font-size: 0.85rem;
+        margin-top: 5px;
+        color: red;
+    }
+
+    /* For a consistent card and form layout */
+    .container {
+        max-width: 600px;
+    }
+
+    /* Adjustments for larger screens */
+    @media (min-width: 768px) {
+        .row {
+            justify-content: center;
+        }
+    }
 </style>
 
 <div class="row justify-content-center mt-5">
-  <div class="col-md-6">
-    <div class="card shadow rounded border-0">
-      <div class="card-body p-4">
-        <h3 class="card-title text-center mb-4">Sign Up to WolfTrack</h3>
+    <div class="col-md-6">
+        <div class="card shadow rounded border-0">
+            <div class="card-body p-4">
+                <h3 class="card-title text-center mb-4">Sign Up to WolfTrack</h3>
 
-        <!-- Flash Messages -->
-        {% with messages = get_flashed_messages(with_categories=true) %} {% if
-        messages %} {% for category, message in messages %}
-        <div class="alert alert-{{ category }} mt-3" role="alert">
-          {{ message }}
+                <!-- Flash Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} mt-3" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <!-- Signup Form -->
+                <form method="POST" action="{{ url_for('signup') }}" id="signup-form">
+                    <div class="mb-4">
+                        <label for="Name" class="form-label fw-semibold">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Full Name" required>
+                        <span class="error-message" id="nameMessage"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="username" class="form-label fw-semibold">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+                        <span class="error-message" id="usernameMessage"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label fw-semibold">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                        <span class="error-message" id="passwordMessage"></span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="user_role" class="form-label fw-semibold">User Role</label>
+                        <select class="form-select" id="user_role" name="user_role" required>
+                            <option value="" selected disabled>Select your role</option>
+                            <option value="admin">Admin</option>
+                            <option value="student">Student</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Register</button>
+                </form>
+            </div>
         </div>
-        {% endfor %} {% endif %} {% endwith %}
-
-        <!-- Signup Form -->
-        <form method="POST" action="{{ url_for('signup') }}" id="signup-form">
-          <div class="mb-4">
-            <label for="Name" class="form-label fw-semibold">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              name="name"
-              placeholder="Enter your Full Name"
-              required
-            />
-            <span class="error-message" id="nameMessage"></span>
-          </div>
-          <div class="mb-4">
-            <label for="username" class="form-label fw-semibold"
-              >Username</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="username"
-              name="username"
-              placeholder="Enter your username"
-              required
-            />
-            <span class="error-message" id="usernameMessage"></span>
-          </div>
-          <div class="mb-4">
-            <label for="password" class="form-label fw-semibold"
-              >Password</label
-            >
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              name="password"
-              placeholder="Enter your password"
-              required
-            />
-            <span class="error-message" id="passwordMessage"></span>
-          </div>
-          <div class="mb-4">
-            <label for="user_role" class="form-label fw-semibold"
-              >User Role</label
-            >
-            <select
-              class="form-select"
-              id="user_role"
-              name="user_role"
-              required
-            >
-              <option value="" selected disabled>Select your role</option>
-              <option value="admin">Admin</option>
-              <option value="student">Student</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Register</button>
-        </form>
-      </div>
     </div>
-  </div>
 </div>
 
 <script>
-  // Real-time validation for the 'Name' field
-  document.getElementById("name").addEventListener("input", function () {
-    const name = document.getElementById("name").value;
-    const nameMessage = document.getElementById("nameMessage");
+    // Real-time validation for the 'Name' field
+    document.getElementById("name").addEventListener("input", function () {
+        const name = document.getElementById("name").value;
+        const nameMessage = document.getElementById("nameMessage");
 
-    if (name.trim() === "") {
-      nameMessage.textContent = "Name cannot be empty.";
-    } else {
-      nameMessage.textContent = "";
-    }
-  });
+        if (name.trim() === "") {
+            nameMessage.textContent = "Name cannot be empty.";
+        } else {
+            nameMessage.textContent = "";
+        }
+    });
 
-  // Real-time validation for the 'Username' field
-  document.getElementById("username").addEventListener("input", function () {
-    const username = document.getElementById("username").value;
-    const usernameMessage = document.getElementById("usernameMessage");
+    // Real-time validation for the 'Username' field
+    document.getElementById("username").addEventListener("input", function () {
+        const username = document.getElementById("username").value;
+        const usernameMessage = document.getElementById("usernameMessage");
 
-    if (username.length < 4) {
-      usernameMessage.textContent =
-        "Username must be at least 4 characters long.";
-    } else if (username.length > 20) {
-      usernameMessage.textContent = "Username cannot exceed 20 characters.";
-    } else {
-      usernameMessage.textContent = "";
-    }
-  });
+        if (username.length < 4) {
+            usernameMessage.textContent = "Username must be at least 4 characters long.";
+        } else if (username.length > 20) {
+            usernameMessage.textContent = "Username cannot exceed 20 characters.";
+        } else {
+            usernameMessage.textContent = "";
+        }
+    });
 
-  // Real-time validation for the 'Password' field
-  document.getElementById("password").addEventListener("input", function () {
-    const password = document.getElementById("password").value;
-    const passwordMessage = document.getElementById("passwordMessage");
+    // Real-time validation for the 'Password' field
+    document.getElementById("password").addEventListener("input", function () {
+        const password = document.getElementById("password").value;
+        const passwordMessage = document.getElementById("passwordMessage");
 
-    if (password.length < 8) {
-      passwordMessage.textContent =
-        "Password must be at least 8 characters long.";
-    } else if (password.length > 20) {
-      passwordMessage.textContent = "Password cannot exceed 20 characters.";
-    } else {
-      passwordMessage.textContent = "";
-    }
-  });
+        if (password.length < 8) {
+            passwordMessage.textContent = "Password must be at least 8 characters long.";
+        } else if (password.length > 20) {
+            passwordMessage.textContent = "Password cannot exceed 20 characters.";
+        } else {
+            passwordMessage.textContent = "";
+        }
+    });
 
-  // Submit button validation (checking all fields)
-  document
-    .getElementById("signup-form")
-    .addEventListener("submit", function (event) {
-      const name = document.getElementById("name").value;
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
+    // Submit button validation (checking all fields)
+    document.getElementById("signup-form").addEventListener("submit", function (event) {
+        const name = document.getElementById("name").value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
 
-      let valid = true;
+        let valid = true;
 
-      if (name.trim() === "") {
-        valid = false;
-        document.getElementById("nameMessage").textContent =
-          "Name cannot be empty.";
-      }
+        if (name.trim() === "") {
+            valid = false;
+            document.getElementById("nameMessage").textContent = "Name cannot be empty.";
+        }
 
-      if (username.length < 4 || username.length > 20) {
-        valid = false;
-        document.getElementById("usernameMessage").textContent =
-          "Username must be between 4 and 20 characters.";
-      }
+        if (username.length < 4 || username.length > 20) {
+            valid = false;
+            document.getElementById("usernameMessage").textContent = "Username must be between 4 and 20 characters.";
+        }
 
-      if (password.length < 8 || password.length > 20) {
-        valid = false;
-        document.getElementById("passwordMessage").textContent =
-          "Password must be between 8 and 20 characters.";
-      }
+        if (password.length < 8 || password.length > 20) {
+            valid = false;
+            document.getElementById("passwordMessage").textContent = "Password must be between 8 and 20 characters.";
+        }
 
-      if (!valid) {
-        event.preventDefault(); // Prevent form submission if validation fails
-      }
+        if (!valid) {
+            event.preventDefault();  // Prevent form submission if validation fails
+        }
     });
 </script>
 {% endblock %}

@@ -1,58 +1,40 @@
-{% extends "layout/init.html" %} {% block content %}
+{% extends "layout/init.html" %}
+
+{% block content %}
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <div class="card shadow-lg">
-        <div class="card-header bg-primary text-white">
-          <h4 class="card-title mb-0">Resume Analyzer</h4>
-        </div>
-        <div class="card-body">
-          <form
-            action="/student/analyze_resume"
-            method="POST"
-            enctype="multipart/form-data"
-          >
-            <!-- Resume Dropdown -->
-            <div class="mb-4">
-              <label for="resumeSelect" class="form-label">Select Resume</label>
-              <select
-                id="resumeSelect"
-                name="resume_path"
-                class="form-select"
-                required
-              >
-                <option value="" disabled selected>Select a resume</option>
-                {% for resume in resumes %}
-                <option value="{{ resume.fileName }}">{{ resume[2] }}</option>
-                {% endfor %}
-              </select>
-            </div>
+      <div class="col-md-8 offset-md-2">
+          <div class="card shadow-lg">
+              <div class="card-header bg-primary text-white">
+                  <h4 class="card-title mb-0">Resume Analyzer</h4>
+              </div>
+              <div class="card-body">
+                  <form action="/student/analyze_resume" method="POST" enctype="multipart/form-data">
+                      <!-- Resume Dropdown -->
+                      <div class="mb-4">
+                          <label for="resumeSelect" class="form-label">Select Resume</label>
+                          <select id="resumeSelect" name="resume_path" class="form-select" required>
+                              <option value="" disabled selected>Select a resume</option>
+                              {% for resume in resumes %}
+                                  <option value="{{ resume.fileName }}">{{ resume[2] }}</option>
+                              {% endfor %}
+                          </select>
+                      </div>
 
-            <!-- Job Description Textarea -->
-            <div class="mb-4">
-              <label for="jobDescription" class="form-label"
-                >Job Description</label
-              >
-              <textarea
-                id="jobDescription"
-                name="job_description"
-                class="form-control"
-                rows="6"
-                placeholder="Paste the job description here..."
-                required
-              ></textarea>
-            </div>
+                      <!-- Job Description Textarea -->
+                      <div class="mb-4">
+                          <label for="jobDescription" class="form-label">Job Description</label>
+                          <textarea id="jobDescription" name="job_description" class="form-control" rows="6" placeholder="Paste the job description here..." required></textarea>
+                      </div>
 
-            <!-- Analyze Button -->
-            <div class="text-center">
-              <button type="submit" class="btn btn-success">
-                Analyze Resume
-              </button>
-            </div>
-          </form>
-        </div>
+                      <!-- Analyze Button -->
+                      <div class="text-center">
+                          <button type="submit" class="btn btn-success">Analyze Resume</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
       </div>
-    </div>
   </div>
 </div>
 

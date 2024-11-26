@@ -2,9 +2,9 @@ name: Syntax Checker
 
 on:
   push:
-    branches: [New_G50-WolfTrack7.0]
+    branches: [ New_G50-WolfTrack7.0 ]
   pull_request:
-    branches: [New_G50-WolfTrack7.0]
+    branches: [ New_G50-WolfTrack7.0 ]
 
 jobs:
   syntax-check:

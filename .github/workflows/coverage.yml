@@ -1,8 +1,8 @@
 on: [workflow_dispatch]
 jobs:
-  runs:
-    using: "composite"
-    steps:
+    runs:
+      using: 'composite'
+      steps:
       - id: coverage-badge
         run: |
           pip install -U coverage coverage-badge

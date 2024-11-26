@@ -1,92 +1,67 @@
-{% extends "layout/skeleton.html" %} {% block content %}
+{% extends "layout/skeleton.html" %}
+
+{% block content %}
 <!-- Main Body Content -->
 <div class="container-fluid mt-5 pt-3">
-  <div class="row">
-    <!-- Welcome Section -->
-    <div class="col-12 text-center mb-5">
-      <h1>Welcome to WolfTrack</h1>
-      <p>
-        Your gateway to job opportunities, resume evaluation, and career
-        development at NC State University.
-      </p>
+    <div class="row">
+        <!-- Welcome Section -->
+        <div class="col-12 text-center mb-5">
+            <h1>Welcome to WolfTrack</h1>
+            <p>Your gateway to job opportunities, resume evaluation, and career development at NC State University.</p>
+        </div>
+
+        <!-- Features Section -->
+        <div class="row text-center">
+            <!-- Job Searching Feature -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-briefcase fa-3x mb-3 text-primary"></i>
+                        <h3>Job Searching</h3>
+                        <p>Explore thousands of job opportunities that fit your skills and preferences. WolfTrack helps you find the best jobs, internships to boost your career.</p>
+                        <a href="/student/job_search" class="btn btn-primary mt-3">Search Jobs</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resume Evaluation Feature -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-file-alt fa-3x mb-3 text-success"></i>
+                        <h3>Resume Evaluation</h3>
+                        <p>Get your resume evaluated to improve your chances of landing your dream job. Our advanced AI tools provide feedback to make your resume stand out.</p>
+                        <a href="/student/analyze_resume" class="btn btn-success mt-3">Evaluate Resume</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resume Suggestions Feature -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-lightbulb fa-3x mb-3 text-warning"></i>
+                        <h3>Resume Suggestions</h3>
+                        <p>Receive personalized suggestions to optimize your resume for specific job opportunities and industries, leveraging the latest AI-powered tools.</p>
+                        <a href="/student/resume_AI_analyzer" class="btn btn-warning mt-3">Get Suggestions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skill Check Feature Section -->
+        <div class="row text-center mt-5">
+            <div class="col-md-6 offset-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-chart-bar fa-3x mb-3 text-info"></i>
+                        <h3>Skill Check</h3>
+                        <p>Assess your skills and identify areas of improvement. With WolfTrack, you can discover and develop the skills that are in demand by top employers.</p>
+                        <a href="/student/job_profile_analyze" class="btn btn-info mt-3">Take Skill Assessment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Features Section -->
-    <div class="row text-center">
-      <!-- Job Searching Feature -->
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <i class="fas fa-briefcase fa-3x mb-3 text-primary"></i>
-            <h3>Job Searching</h3>
-            <p>
-              Explore thousands of job opportunities that fit your skills and
-              preferences. WolfTrack helps you find the best jobs, internships
-              to boost your career.
-            </p>
-            <a href="/student/job_search" class="btn btn-primary mt-3"
-              >Search Jobs</a
-            >
-          </div>
-        </div>
-      </div>
-
-      <!-- Resume Evaluation Feature -->
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <i class="fas fa-file-alt fa-3x mb-3 text-success"></i>
-            <h3>Resume Evaluation</h3>
-            <p>
-              Get your resume evaluated to improve your chances of landing your
-              dream job. Our advanced AI tools provide feedback to make your
-              resume stand out.
-            </p>
-            <a href="/student/analyze_resume" class="btn btn-success mt-3"
-              >Evaluate Resume</a
-            >
-          </div>
-        </div>
-      </div>
-
-      <!-- Resume Suggestions Feature -->
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <i class="fas fa-lightbulb fa-3x mb-3 text-warning"></i>
-            <h3>Resume Suggestions</h3>
-            <p>
-              Receive personalized suggestions to optimize your resume for
-              specific job opportunities and industries, leveraging the latest
-              AI-powered tools.
-            </p>
-            <a href="/student/resume_AI_analyzer" class="btn btn-warning mt-3"
-              >Get Suggestions</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Skill Check Feature Section -->
-    <div class="row text-center mt-5">
-      <div class="col-md-6 offset-md-3 mb-4">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <i class="fas fa-chart-bar fa-3x mb-3 text-info"></i>
-            <h3>Skill Check</h3>
-            <p>
-              Assess your skills and identify areas of improvement. With
-              WolfTrack, you can discover and develop the skills that are in
-              demand by top employers.
-            </p>
-            <a href="/student/job_profile_analyze" class="btn btn-info mt-3"
-              >Take Skill Assessment</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 {% endblock %}
