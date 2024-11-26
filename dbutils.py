@@ -127,13 +127,13 @@ def add_job_for_user(company_name, location, job_position, user_name,salary,stat
     finally:
         conn.close()
 
-def update_job_application_by_id(job_id, company, location, jobposition,db):
+def update_job_application_by_id(job_id, company, location, jobposition, status,db):
     conn = sqlite3.connect(db)
     cursor = conn.cursor()
 
     # Update the 'jobs' table based on jobid
-    cursor.execute("UPDATE jobs SET company_name=?, location=?, job_position=? WHERE id=?",
-                   (company, location, jobposition, job_id))
+    cursor.execute("UPDATE jobs SET company_name=?, location=?, job_position=?, status=? WHERE id=?",
+                   (company, location, jobposition, status, job_id))
 
     conn.commit()
     conn.close()
