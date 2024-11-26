@@ -47,7 +47,7 @@
 
 ## Why WolfTrack 7.0?
 
-WolfTrack6.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack6.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack7.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
+WolfTrack7.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack7.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack7.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
 We offer features like giving suggestions for improvements on your resume, AI-based suggestions, tracking your application, and many more.
 
@@ -308,7 +308,7 @@ It is part of the [Github Workflow Build](https://github.com/CSC510-SE-Uddharsh-
 - [x] Enhanced Job Scraping & Search Filters
 - [x] AI-Powered Resume Feedback
 
-### Phase 7 WolfTrack 6.0:
+### Phase 7 WolfTrack 7.0:
 
 - [ ] Major UI and User Enhancements for the simple looking application
 - [ ] Added download resume feature that allows users to download their latest resume
@@ -316,6 +316,14 @@ It is part of the [Github Workflow Build](https://github.com/CSC510-SE-Uddharsh-
 - [ ] Wider Test Coverage
 - [ ] Added skills extraction
 - [ ] Fixed Bugs in the project
+
+### Future Scope:
+
+- [ ] Implement forgot password functionality
+- [ ] Migrate to a real time data base from local
+- [ ] Enhance with HTTPS Support
+- [ ] Wider Test Coverage
+- [ ] Add MFA/2FA for enhanced security
 ---
 
 ## Developer Support and Updates
