@@ -16,6 +16,7 @@ import os
 def create_tables(db):
     conn = sqlite3.connect(db)
     cursor = conn.cursor()
+    cursor.execute("PRAGMA journal_mode=WAL;")  # Enable WAL for concurrent access
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS client (
             id INTEGER PRIMARY KEY,
@@ -26,28 +27,27 @@ def create_tables(db):
         )
     ''')
     cursor.execute('''
-    CREATE TABLE IF NOT EXISTS jobs (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        company_name TEXT,
-        location TEXT,
-        job_position TEXT,
-        salary INTEGER,
-        status TEXT
-    )
+        CREATE TABLE IF NOT EXISTS jobs (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            company_name TEXT,
+            location TEXT,
+            job_position TEXT,
+            salary INTEGER,
+            status TEXT
+        )
     ''')
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS resumes (
-            id	INTEGER NOT NULL,
-            username	TEXT NOT NULL,
-            fileName	TEXT NOT NULL,
-            PRIMARY KEY(id AUTOINCREMENT),
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL,
+            fileName TEXT NOT NULL,
+            position TEXT,
             UNIQUE(username, fileName),
             FOREIGN KEY(username) REFERENCES client(username)
         )
     ''')
     conn.commit()
     conn.close()
-
 
 def add_client(value_set,db):
     conn = sqlite3.connect(db)
