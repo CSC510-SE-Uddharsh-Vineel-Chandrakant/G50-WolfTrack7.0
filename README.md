@@ -79,14 +79,17 @@ This release brings significant updates designed to enhance user experience, fun
 - **Login Validation:** Strengthened input validation for login fields to prevent injection attacks and ensure secure data handling.
 - **Signup Validation:** Enhanced checks on signup inputs, including password strength, email format, and mandatory field requirements, to improve security and user experience.
 
+## 🗂️ Job Board Management
+- **Enhanced Job Application Workflow:** Added an "Add Job Application" button that opens a modal to capture and store job application details, enabling users to track their applied jobs efficiently.
+- **Core Management Features:** Implemented essential features such as editing, deleting, and filtering job applications, offering users multiple options to organize and trace their applications effortlessly.
+- **Improved Search Functionality:** Refined the job search feature to help users easily identify the companies and locations they've applied to, ensuring seamless navigation and tracking.
+
+## 🛠️ Extract Skills Feature
+- **Optimized Performance:** Enhanced the skill extraction process to handle large job descriptions within seconds, addressing limitations from previous versions.
+- **Expanded Skill Coverage:** Broadened the skill database to identify a wider range of skills, ensuring comprehensive skill extraction.
+
 ## 🔍 Improved Test Coverage
 - **More Coverage:** We expanded test coverage to enhance stability, providing a smoother user experience and increased reliability for all features.
-
-
-## 📈 Enhanced Job Scraping & Search Filters
-- **Job Scraping with Salary Information:** Jobs now display salary details, giving users more insights to make informed decisions.
-- **Improved Search Filters:** More precise filters allow users to find exactly what they’re looking for, faster.
-
 
 This release makes the platform more powerful, user-friendly, and equipped to deliver a top-notch experience. Get ready to impress!
 
