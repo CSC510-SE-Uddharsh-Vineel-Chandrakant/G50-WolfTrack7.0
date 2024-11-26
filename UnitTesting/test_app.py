@@ -404,6 +404,193 @@ class TestFlaskApp(TestCase):
         }
         response = self.client.post('/login', data=data, follow_redirects=True)
         self.assert200(response)
+        
+    def test_valid_signup(self):
+        response = self.client.post('/signup', data={
+            "name":"Test user",
+            "username":"testuser",
+            "password":"123123123",
+            "user_role":"student"
+        }, follow_redirects=True)
+        self.assert200(response)
+        
+    def test_valid_login(self):
+        response = self.client.post('/login', data={
+            "username":"testuser",
+            "password":"123123123",
+            "user_role":"student"
+        }, follow_redirects=True)
+        self.assert200(response)
+        
+    def test_add_job_application_valid(self):
+        data = {
+            'company': 'Test Company',
+            'location': 'Test City',
+            'jobposition': 'Software Engineer',
+            'salary': '120000',
+            'status': 'Applied'
+        }
+        response = self.client.post('/student/add_job_application', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    def test_add_job_application_missing_fields(self):
+        data = {
+            'company': 'Test Company',
+            'jobposition': 'Software Engineer',
+            'salary': '120000'
+        }
+        response = self.client.post('/student/add_job_application', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    # 3. Test adding a job application without being logged in
+    def test_add_job_application_without_login(self):
+        data = {
+            'company': 'Test Company',
+            'location': 'Test City',
+            'jobposition': 'Software Engineer',
+            'salary': '120000',
+            'status': 'Applied'
+        }
+        response = self.client.post('/student/add_job_application', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    # 4. Test adding a job application with invalid salary format
+    def test_add_job_application_invalid_salary(self):
+        data = {
+            'company': 'Test Company',
+            'location': 'Test City',
+            'jobposition': 'Software Engineer',
+            'salary': 'abc',
+            'status': 'Applied'
+        }
+        response = self.client.post('/student/add_job_application', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    # 5. Test updating a valid job application
+    def test_update_job_application_valid(self):
+        data = {
+            'job_id': '1',
+            'company': 'Updated Company',
+            'location': 'Updated City',
+            'jobposition': 'Updated Engineer',
+            'status': 'Interview Scheduled'
+        }
+        response = self.client.post('/student/update_job_application', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    # 6. Test updating a job application with missing fields
+    def test_update_job_application_missing_fields(self):
+        data = {
+            'job_id': '1',
+            'company': 'Updated Company',
+            # Missing 'location', 'jobposition', 'status'
+        }
+        response = self.client.post('/student/update_job_application', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    # 7. Test updating a job application with invalid job ID
+    def test_update_job_application_invalid_job_id(self):
+        data = {
+            'job_id': '99999',  # Non-existing job ID
+            'company': 'Updated Company',
+            'location': 'Updated City',
+            'jobposition': 'Updated Engineer',
+            'status': 'Interview Scheduled'
+        }
+        response = self.client.post('/student/update_job_application', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    # 8. Test updating a job application without login
+    def test_update_job_application_without_login(self):
+        data = {
+            'job_id': '1',
+            'company': 'Updated Company',
+            'location': 'Updated City',
+            'jobposition': 'Updated Engineer',
+            'status': 'Interview Scheduled'
+        }
+        response = self.client.post('/student/update_job_application', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    # 9. Test deleting a job application successfully
+    def test_delete_job_application_valid(self):
+        response = self.client.post('/student/delete_job_application', query_string={'job_id': '1'}, follow_redirects=True)
+        self.assert200(response)
+
+    # 10. Test deleting a job application with missing job ID
+    def test_delete_job_application_missing_job_id(self):
+        response = self.client.post('/student/delete_job_application', follow_redirects=True)
+        self.assert200(response)
+
+    # 11. Test deleting a job application with invalid job ID
+    def test_delete_job_application_invalid_job_id(self):
+        response = self.client.post('/student/delete_job_application', query_string={'job_id': '99999'}, follow_redirects=True)
+        self.assert200(response)
+
+    # 12. Test deleting a job application without login
+    def test_delete_job_application_without_login(self):
+        response = self.client.post('/student/delete_job_application', query_string={'job_id': '1'}, follow_redirects=True)
+        self.assert200(response)
+
+    # 13. Test adding job application with excessively long company name
+    def test_add_job_application_long_company_name(self):
+        data = {
+            'company': 'A' * 256,  # Exceeds typical field length
+            'location': 'Test City',
+            'jobposition': 'Software Engineer',
+            'salary': '120000',
+            'status': 'Applied'
+        }
+        response = self.client.post('/student/add_job_application', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    # 14. Test updating a job application with excessively long job position
+    def test_update_job_application_long_job_position(self):
+        data = {
+            'job_id': '1',
+            'company': 'Updated Company',
+            'location': 'Updated City',
+            'jobposition': 'A' * 256,  # Exceeds typical field length
+            'status': 'Interview Scheduled'
+        }
+        response = self.client.post('/student/update_job_application', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    # 15. Test adding a job application with invalid status
+    def test_add_job_application_invalid_status(self):
+        data = {
+            'company': 'Test Company',
+            'location': 'Test City',
+            'jobposition': 'Software Engineer',
+            'salary': '120000',
+            'status': 'Not a Valid Status'  # Invalid status
+        }
+        response = self.client.post('/student/add_job_application', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    # 16. Test session expiration while updating a job application
+    def test_update_job_application_session_expired(self):
+        data = {
+            'job_id': '1',
+            'company': 'Updated Company',
+            'location': 'Updated City',
+            'jobposition': 'Updated Engineer',
+            'status': 'Interview Scheduled'
+        }
+        response = self.client.post('/student/update_job_application', data=data, follow_redirects=True)
+        self.assert200(response)
+
+    # 17. Test redirect after adding a job application
+    def test_add_job_application_redirect(self):
+        data = {
+            'company': 'Test Company',
+            'location': 'Test City',
+            'jobposition': 'Software Engineer',
+            'salary': '120000',
+            'status': 'Applied'
+        }
+        response = self.client.post('/student/add_job_application', data=data)
+        self.assertEqual(response.status_code, 302)
 
 if __name__ == '__main__':
     unittest.main()
