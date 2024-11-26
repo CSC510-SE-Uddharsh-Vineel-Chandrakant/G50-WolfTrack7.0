@@ -419,16 +419,23 @@ def search():
     if(job_type=="full_time"): query+="&full_time=1"
     if(job_type=="part_time"): query+="&part_time=1"
     if(len(company)>0): query+="&company="+company
+    if(len(location)>0): query+="&where="+location
 
-    adzuna_url = f"https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=ff3aac23&app_key=ba74da995e25751969e995bcc4a86799&"+query
+    adzuna_url = f"https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=ff3aac23&app_key=ba74da995e25751969e995bcc4a86799&"+query
     try:
         response = requests.get(adzuna_url)
         if response.status_code == 200:
             data = response.json()
             jobs = data.get('results', [])
-            return render_template('job_search.html', jobs=jobs)
+            return render_template('job_search.html', jobs=jobs,
+                                   job_title=job_title,
+                                   location=location,
+                                   minSalary=minSalary,
+                                   maxSalary=maxSalary,
+                                   job_type=job_type,
+                                   company=company)
         else:
-            return "Error fetching job listings"
+            return f"Error fetching job listings: {response.status_code}"
     except requests.RequestException as e:
         return f"Error: {e}"
 
