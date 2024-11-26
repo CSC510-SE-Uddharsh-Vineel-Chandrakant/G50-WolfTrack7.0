@@ -290,12 +290,11 @@ filename=""
 @app.route("/student/upload", methods=['POST'])
 def upload():
     APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-    target = os.path.join(APP_ROOT, 'Controller/resume/')
+    target = os.path.join(APP_ROOT, r"Controller\resume\/")
 
     if not os.path.isdir(target):
         os.mkdir(target)
-    if len(os.listdir(target)) != 0:
-        os.remove(target + os.listdir(target)[0])
+    
 
     for file in request.files.getlist("file"):
         filename = file.filename
@@ -322,7 +321,7 @@ def view_companies_list():
 # @app.route('/student/analyze_resume', methods=['POST'])
 # def analyze_resume():
 #     jobtext = request.form['job_description']
-#     os.chdir(os.getcwd()+"/Controller/resume/")
+#     os.chdir(os.getcwd()+r"Controller\resume\\")
 #     output = resume_analyzer(jobtext, str(os.listdir(os.getcwd())[0]))
 #     resumes = get_resumes_by_user_name(session['user_name'], database)
 #     os.chdir("..")
@@ -331,12 +330,12 @@ def view_companies_list():
 
 @app.route("/student/display/", methods=['POST','GET'])
 def display():
-    path = os.getcwd()+"/Controller/resume/"
+    path = os.getcwd()+r"/Controller\resume\/"
     filename = os.listdir(path)
     if filename:
         return send_file(path+str(filename[0]),as_attachment=True)
     else:
-        user = request.form['user_id']
+        user = session['user_id']
         user = find_user(str(user),database)
         return render_template('home.html', user=user, data=data, upcoming_events=upcoming_events)
 def section_strip(section, section_name):
@@ -349,7 +348,7 @@ def section_strip(section, section_name):
 
 @app.route('/student/resume_AI_analyzer/', methods=['GET'])
 def resume_AI_analyzer():
-    resume_dir = os.path.join(os.getcwd(), 'Controller', 'resume')
+    resume_dir = os.path.join(os.getcwd(), r"Controller\resume\/")
 
     files = os.listdir(resume_dir)
     if not files:
@@ -473,7 +472,7 @@ def add_job_to_current_user():
             job_id = existing_job[0]
 
         # Associate the job with the current user
-        add_job_for_user(company_name, location, job_title, current_user, salary,status,database)
+        add_job_for_user(company_name, location, job_title, current_user, database)
 
         return jsonify({"message": "Job successfully added to the current user's applied jobs."}), 200
     except Exception as e:
