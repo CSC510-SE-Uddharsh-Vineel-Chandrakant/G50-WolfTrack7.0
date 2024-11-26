@@ -481,7 +481,7 @@ def add_job_to_current_user():
             job_id = existing_job[0]
 
         # Associate the job with the current user
-        add_job_for_user(company_name, location, job_title, current_user, database)
+        add_job_for_user(company_name, location, job_title, current_user,salary, status, database)
 
         return jsonify({"message": "Job successfully added to the current user's applied jobs."}), 200
     except Exception as e:
