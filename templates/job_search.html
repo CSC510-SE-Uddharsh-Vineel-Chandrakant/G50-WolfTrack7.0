@@ -62,6 +62,7 @@
                     <th>Contract</th>
                     <th>Description</th>
                     <th>Details</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="jobTable">
@@ -73,7 +74,15 @@
                     <td>{{ job.contract_time }}, {{ job.contract_type }}</td>
                     <td><button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#jobModal{{ loop.index }}">Detail</button></td>
                     <td><a href="{{ job.redirect_url }}" class="btn btn-info" target="_blank">Link</a></td>
-                </tr>
+                    <td><button class="btn btn-primary add-to-user" 
+                                data-title="{{ job.title }}" 
+                                data-company="{{ job.company.display_name }}" 
+                                data-location="{{ job.location.display_name }}"
+                                data-salary="{{ job.salary_min or 0 }}">
+                            Add to Applied
+                        </button>
+                    </td>
+                    </tr>
                 <!-- Bootstrap Modal -->
                 <div class="modal fade" id="jobModal{{ loop.index }}" tabindex="-1" aria-labelledby="jobModalLabel{{ loop.index }}" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
@@ -202,5 +211,44 @@ document.addEventListener('DOMContentLoaded', function() {
     displayTableRows();
     updatePagination();
 });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const addToUserButtons = document.querySelectorAll('.add-to-user');
+
+        addToUserButtons.forEach(button => {
+            button.addEventListener('click', async function () {
+                // Collect job details from the button's data attributes
+                const jobDetails = {
+                    title: this.getAttribute('data-title'),
+                    company: this.getAttribute('data-company'),
+                    location: this.getAttribute('data-location'),
+                    salary: this.getAttribute('data-salary'),
+                
+                };
+
+                try {
+                    const response = await fetch('/add-job-to-current-user', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(jobDetails)
+                    });
+
+                    const result = await response.json();
+                    if (response.ok) {
+                        alert(result.message || "Job successfully added to applied jobs.");
+                    } else {
+                        alert(result.error || "An error occurred.");
+                    }
+                } catch (error) {
+                    console.error("Error adding job to user:", error);
+                    alert("Failed to add job. Please try again.");
+                }
+            });
+        });
+    });
 </script>
 {% endblock %}
