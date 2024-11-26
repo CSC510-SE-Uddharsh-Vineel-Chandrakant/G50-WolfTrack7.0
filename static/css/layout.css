@@ -1,20 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 :root {
-    
-    --theme-dark: #ffffff;
-    /* --theme-light: #da2d2d; */
-    /* --theme-dark: #E9967A; */
-    --theme-light: #f35858;
-    --text-color: white;
-    --navbar-background: #da2d2d;
-  }
+  --theme-dark: #ffffff;
+  /* --theme-light: #da2d2d; */
+  /* --theme-dark: #E9967A; */
+  --theme-light: #f35858;
+  --text-color: white;
+  --navbar-background: #da2d2d;
+}
 
-  /* --theme-dark: #225161;
+/* --theme-dark: #225161;
     --theme-light: #295D6B; */
 
 .navbar {
-    background-color: var(--navbar-background);
-    width: 100%;
+  background-color: var(--navbar-background);
+  width: 100%;
 }
 
 .navbar-header {
@@ -23,30 +22,32 @@
   text-align: center;
   width: 100%;
 }
-.navbar-brand {float:center;}
+.navbar-brand {
+  float: center;
+}
 
 .sidenav {
-    padding-top: 20px;    
-  }
+  padding-top: 20px;
+}
 
 .main-content {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .status-card {
-    margin: 20px;
-    background-color: var(--theme-light);
-    border-radius: 10%;
+  margin: 20px;
+  background-color: var(--theme-light);
+  border-radius: 10%;
 }
 
 .list-group-item {
-    background-color: var(--theme-light);
+  background-color: var(--theme-light);
 }
 
 body {
-    color: var(--text-color);
-    background-color: var(--theme-dark);
-  }
+  color: var(--text-color);
+  background-color: var(--theme-dark);
+}
 
 .btn-outlined {
   /* background: #e9f0f5; */
@@ -64,7 +65,7 @@ body {
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   font-weight: bold; */
-  font-family: "Segoe UI" , sans-serif;
+  font-family: "Segoe UI", sans-serif;
   border-color: #da2d2d;
   color: #da2d2d;
 }
@@ -79,29 +80,29 @@ body {
   text-decoration: none;
 } */
 
-
 .card-icons {
-    font-size:80px;
-    margin-top: 10px;
-    color: #16353F;
+  font-size: 80px;
+  margin-top: 10px;
+  color: #16353f;
 }
 
-.sidenav-right,.sidenav-left {
-    color: black;
-    /* padding-top: 40pt; */
+.sidenav-right,
+.sidenav-left {
+  color: black;
+  /* padding-top: 40pt; */
 }
 
 .new-application-modal {
-    color: black;
+  color: black;
 }
 
-.main-header{
+.main-header {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.card-link{
-  color:#1c4552;
+.card-link {
+  color: #1c4552;
 }

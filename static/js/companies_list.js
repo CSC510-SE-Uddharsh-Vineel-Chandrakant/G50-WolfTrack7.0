@@ -38,7 +38,7 @@ var filterParams = {
     var cellDate = new Date(
       Number(dateParts[2]),
       Number(dateParts[0]) - 1,
-      Number(dateParts[1])
+      Number(dateParts[1]),
     );
 
     if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
@@ -167,13 +167,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const decodedStatus = decodeURIComponent(status);
   new agGrid.Grid(gridDiv, gridOptions);
   gridOptions.api.setQuickFilter(decodedStatus);
-  
+
   // Calculate the count of job applications with today's date
   const today = new Date();
   const todayDateString = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
-  const applied = data.filter((jobApplication) => jobApplication.applicationdate === todayDateString).length;
-
-
+  const applied = data.filter(
+    (jobApplication) => jobApplication.applicationdate === todayDateString,
+  ).length;
 
   const addNewCompany = (company, status, applicationDate, dueDate) => {
     const newCompany = {

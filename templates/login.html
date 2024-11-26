@@ -1,198 +1,208 @@
-{% extends "layout/skeleton.html" %}
-
-{% block content %}
+{% extends "layout/skeleton.html" %} {% block content %}
 <style>
-    /* Background styling */
-    body {
-        background: url('https://media.istockphoto.com/id/1349390515/photo/paperless-workplace-idea-e-signing-electronic-signature-document-management-businessman-signs.jpg?s=612x612&w=0&k=20&c=EyQl13diegNV5DVLnb0krcAcRDhL7NiSA7IEVImZs6Q=') no-repeat center center fixed;
-        background-size: cover;
-    }
+  /* Background styling */
+  body {
+    background: url("https://media.istockphoto.com/id/1349390515/photo/paperless-workplace-idea-e-signing-electronic-signature-document-management-businessman-signs.jpg?s=612x612&w=0&k=20&c=EyQl13diegNV5DVLnb0krcAcRDhL7NiSA7IEVImZs6Q=")
+      no-repeat center center fixed;
+    background-size: cover;
+  }
 
-    /* Centered card container styling */
-    .card {
-        background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for better readability */
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
+  /* Centered card container styling */
+  .card {
+    background: rgba(
+      255,
+      255,
+      255,
+      0.9
+    ); /* Semi-transparent white background for better readability */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
 
-    /* Card title and text styling */
-    .card-title {
-        color: #b71c1c; /* Deep red for the title */
-        font-weight: bold;
-    }
+  /* Card title and text styling */
+  .card-title {
+    color: #b71c1c; /* Deep red for the title */
+    font-weight: bold;
+  }
 
-    .text-secondary {
-        color: #757575 !important; /* Muted text for the subtitle */
-    }
+  .text-secondary {
+    color: #757575 !important; /* Muted text for the subtitle */
+  }
 
-    /* Form inputs and buttons */
-    .form-control,
-    .form-select {
-        border: 1px solid #b71c1c; /* Red border for inputs */
-        box-shadow: none;
-    }
+  /* Form inputs and buttons */
+  .form-control,
+  .form-select {
+    border: 1px solid #b71c1c; /* Red border for inputs */
+    box-shadow: none;
+  }
 
-    .form-control:focus,
-    .form-select:focus {
-        border-color: #d32f2f;
-        box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.25);
-    }
+  .form-control:focus,
+  .form-select:focus {
+    border-color: #d32f2f;
+    box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.25);
+  }
 
-    .btn-primary {
-        background-color: #d32f2f;
-        border-color: #d32f2f;
-    }
+  .btn-primary {
+    background-color: #d32f2f;
+    border-color: #d32f2f;
+  }
 
-    .btn-primary:hover {
-        background-color: #b71c1c;
-        border-color: #b71c1c;
-    }
+  .btn-primary:hover {
+    background-color: #b71c1c;
+    border-color: #b71c1c;
+  }
 
-    /* Links */
-    a.text-primary {
-        color: #b71c1c;
-    }
+  /* Links */
+  a.text-primary {
+    color: #b71c1c;
+  }
 
-    a.text-primary:hover {
-        text-decoration: underline;
-        color: #d32f2f;
-    }
+  a.text-primary:hover {
+    text-decoration: underline;
+    color: #d32f2f;
+  }
 
-    .error-message {
-        font-size: 0.85rem;
-        margin-top: 5px;
-        color: red;
-    }
+  .error-message {
+    font-size: 0.85rem;
+    margin-top: 5px;
+    color: red;
+  }
 </style>
 
 <div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="col-md-6 col-lg-4">
-        <div class="card shadow-lg">
-            <div class="card-body p-4">
-                <h3 class="card-title text-center mb-4">Welcome to WolfTrack</h3>
-                <h5 class="text-center mb-4 text-secondary">Login to Your Account</h5>
+  <div class="col-md-6 col-lg-4">
+    <div class="card shadow-lg">
+      <div class="card-body p-4">
+        <h3 class="card-title text-center mb-4">Welcome to WolfTrack</h3>
+        <h5 class="text-center mb-4 text-secondary">Login to Your Account</h5>
 
-                <!-- Flash Messages -->
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            <div class="alert alert-{{ category }} mt-3" role="alert">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
-                
-                <!-- Login Form -->
-                <form method="POST" action="{{ url_for('login') }}" id="login-form">
-                    <!-- Username Field -->
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input 
-                            type="text" 
-                            class="form-control border-primary shadow-sm" 
-                            id="username" 
-                            name="username" 
-                            placeholder="Enter your username" 
-                            required>
-                        <span class="error-message" id="usernameMessage"></span>
-                    </div>
-                    
-                    <!-- Password Field -->
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input 
-                            type="password" 
-                            class="form-control border-primary shadow-sm" 
-                            id="password" 
-                            name="password" 
-                            placeholder="Enter your password" 
-                            required>
-                        <span class="error-message" id="passwordMessage"></span>
-                    </div>
-                    
-                    <!-- User Role Field -->
-                    <div class="mb-3">
-                        <label for="user_role" class="form-label">User Role</label>
-                        <select 
-                            class="form-select border-primary shadow-sm" 
-                            id="user_role" 
-                            name="user_role" 
-                            required>
-                            <option value="" selected disabled>Select your role</option>
-                            <option value="admin">Admin</option>
-                            <option value="student">Student</option>
-                        </select>
-                    </div>
-                    
-                    <!-- Submit Button -->
-                    <button 
-                        type="submit" 
-                        class="btn btn-primary w-100 shadow-sm">
-                        Login
-                    </button>
-                </form>
-                
-                <!-- Signup Link -->
-                <p class="text-center mt-3">
-                    <small class="text-muted">Don't have an account?</small>
-                    <a href="{{ url_for('signup') }}" class="text-primary">Sign up here</a>
-                </p>
-            </div>
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %}
+        <div class="alert alert-{{ category }} mt-3" role="alert">
+          {{ message }}
         </div>
+        {% endfor %} {% endif %} {% endwith %}
+
+        <!-- Login Form -->
+        <form method="POST" action="{{ url_for('login') }}" id="login-form">
+          <!-- Username Field -->
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              class="form-control border-primary shadow-sm"
+              id="username"
+              name="username"
+              placeholder="Enter your username"
+              required
+            />
+            <span class="error-message" id="usernameMessage"></span>
+          </div>
+
+          <!-- Password Field -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control border-primary shadow-sm"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+            />
+            <span class="error-message" id="passwordMessage"></span>
+          </div>
+
+          <!-- User Role Field -->
+          <div class="mb-3">
+            <label for="user_role" class="form-label">User Role</label>
+            <select
+              class="form-select border-primary shadow-sm"
+              id="user_role"
+              name="user_role"
+              required
+            >
+              <option value="" selected disabled>Select your role</option>
+              <option value="admin">Admin</option>
+              <option value="student">Student</option>
+            </select>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary w-100 shadow-sm">
+            Login
+          </button>
+        </form>
+
+        <!-- Signup Link -->
+        <p class="text-center mt-3">
+          <small class="text-muted">Don't have an account?</small>
+          <a href="{{ url_for('signup') }}" class="text-primary"
+            >Sign up here</a
+          >
+        </p>
+      </div>
     </div>
+  </div>
 </div>
 
 <script>
-    // Real-time validation for the 'Username' field
-    document.getElementById("username").addEventListener("input", function () {
-        const username = document.getElementById("username").value;
-        const usernameMessage = document.getElementById("usernameMessage");
+  // Real-time validation for the 'Username' field
+  document.getElementById("username").addEventListener("input", function () {
+    const username = document.getElementById("username").value;
+    const usernameMessage = document.getElementById("usernameMessage");
 
-        if (username.length < 4) {
-            usernameMessage.textContent = "Username must be at least 4 characters long.";
-        } else if (username.length > 20) {
-            usernameMessage.textContent = "Username cannot exceed 20 characters.";
-        } else {
-            usernameMessage.textContent = "";
-        }
-    });
+    if (username.length < 4) {
+      usernameMessage.textContent =
+        "Username must be at least 4 characters long.";
+    } else if (username.length > 20) {
+      usernameMessage.textContent = "Username cannot exceed 20 characters.";
+    } else {
+      usernameMessage.textContent = "";
+    }
+  });
 
-    // Real-time validation for the 'Password' field
-    document.getElementById("password").addEventListener("input", function () {
-        const password = document.getElementById("password").value;
-        const passwordMessage = document.getElementById("passwordMessage");
+  // Real-time validation for the 'Password' field
+  document.getElementById("password").addEventListener("input", function () {
+    const password = document.getElementById("password").value;
+    const passwordMessage = document.getElementById("passwordMessage");
 
-        if (password.length < 8) {
-            passwordMessage.textContent = "Password must be at least 8 characters long.";
-        } else if (password.length > 20) {
-            passwordMessage.textContent = "Password cannot exceed 20 characters.";
-        } else {
-            passwordMessage.textContent = "";
-        }
-    });
+    if (password.length < 8) {
+      passwordMessage.textContent =
+        "Password must be at least 8 characters long.";
+    } else if (password.length > 20) {
+      passwordMessage.textContent = "Password cannot exceed 20 characters.";
+    } else {
+      passwordMessage.textContent = "";
+    }
+  });
 
-    // Submit button validation (checking all fields)
-    document.getElementById("login-form").addEventListener("submit", function (event) {
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+  // Submit button validation (checking all fields)
+  document
+    .getElementById("login-form")
+    .addEventListener("submit", function (event) {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
 
-        let valid = true;
+      let valid = true;
 
-        if (username.length < 4 || username.length > 20) {
-            valid = false;
-            document.getElementById("usernameMessage").textContent = "Username must be between 4 and 20 characters.";
-        }
+      if (username.length < 4 || username.length > 20) {
+        valid = false;
+        document.getElementById("usernameMessage").textContent =
+          "Username must be between 4 and 20 characters.";
+      }
 
-        if (password.length < 8 || password.length > 20) {
-            valid = false;
-            document.getElementById("passwordMessage").textContent = "Password must be between 8 and 20 characters.";
-        }
+      if (password.length < 8 || password.length > 20) {
+        valid = false;
+        document.getElementById("passwordMessage").textContent =
+          "Password must be between 8 and 20 characters.";
+      }
 
-        if (!valid) {
-            event.preventDefault();  // Prevent form submission if validation fails
-        }
+      if (!valid) {
+        event.preventDefault(); // Prevent form submission if validation fails
+      }
     });
 </script>
 
