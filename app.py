@@ -220,10 +220,11 @@ def update_job_application():
         company = request.form['company']
         location = request.form['location']
         jobposition = request.form['jobposition']
+        status = request.form['status']
         user_name = session['user_name']
 
         # Perform the update operation
-        update_job_application_by_id( job_id, company, location,jobposition, database)  # Replace this with your method to update the job
+        update_job_application_by_id( job_id, company, location,jobposition, status, database)  # Replace this with your method to update the job
 
         flash('Job Application Updated!')
         # Redirect to a success page or any relevant route after successful job update
@@ -480,7 +481,7 @@ def add_job_to_current_user():
             job_id = existing_job[0]
 
         # Associate the job with the current user
-        add_job_for_user(company_name, location, job_title, current_user, database)
+        add_job_for_user(company_name, location, job_title, current_user,salary, status, database)
 
         return jsonify({"message": "Job successfully added to the current user's applied jobs."}), 200
     except Exception as e:
