@@ -32,7 +32,7 @@
     <li><a href="#why-WolfTrack-7.0">Why WolfTrack 7.0?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
-    <li><a href="#what-type-of-user-is-WolfTrack-7.0-best-suited-for?">What type of user is WolfTrack 6.0 best suited for?</a></li>
+    <li><a href="#what-type-of-user-is-WolfTrack-7.0-best-suited-for?">What type of user is WolfTrack 7.0 best suited for?</a></li>
     <li><a href="#technology-stack">Technology Stack</a></li>
     <li><a href="#version-control-tools">Version Control Tools</a></li>
     <li><a href="#tools">Tools</a></li>
@@ -59,7 +59,7 @@ We offer features like giving suggestions for improvements on your resume, AI-ba
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a video for the WolfTrack 7.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [Google Drive Link](https://drive.google.com/drive/u/0/folders/12wHCHCc0qkgh_-oPQci3bGEgrj7ylkFT) 
+To demonstrate our application's functionality and showcase its working examples, we have produced a video for the WolfTrack 7.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [Youtube](https://youtu.be/dZGZiQkzEiI) 
 
 ---
 
@@ -127,7 +127,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;![ezgif com-optimize](https://user-images.githubusercontent.com/32817064/140445992-15af5890-6aa5-48e5-b663-7e6bd1272d26.gif)
 
 - #### We have created an entire CI pipeline which includes all the stages including Code Analysis, Style checkers, Code Coverage, Code Assemble and Docker Image Build, readily available to run the image on any server without manually setting up the environment.
-- [Github WorkFlow YAML](https://github.com/TeamBenign/WolfTrack6.0/blob/Main/.github/workflows/main.yml) | [Dockerfile](https://github.com/TeamBenign/WolfTrack6.0/blob/Main/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [Flake8](https://github.com/TeamBenign/WolfTrack6.0/.github/workflows/main.yml) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter)
+- [Github WorkFlow YAML](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/blob/Main/.github/workflows/main.yml) | [Dockerfile](https://github.com/TeamBenign/WolfTrack6.0/blob/Main/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [Flake8](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/.github/workflows/main.yml) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter)
 
 ### Third-Party Tools
 
@@ -172,7 +172,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
     `source test_env/bin/activate`
 
-  - Build the virtual environment:(must be present in [project root directory](https://github.com/TeamBenign/WolfTrack6.0))
+  - Build the virtual environment:(must be present in [project root directory](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0))
 
     `pip install -r requirements.txt`
 
@@ -180,9 +180,9 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
   **To run/test the site locally:**
 
-  - Clone [WolfTrack github repo](https://github.com/TeamBenign/WolfTrack6.0).
+  - Clone [WolfTrack github repo](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/tree/New_G50-WolfTrack7.0).
 
-  - Navigate to [project directory](https://github.com/TeamBenign/WolfTrack6.0).
+  - Navigate to [project directory](https://github.com/CSC510-SE-Uddharsh-Vineel-Chandrakant/G50-WolfTrack7.0/tree/New_G50-WolfTrack7.0).
 
   - Run `python main.py` or `python3 main.py` <br> <br>
     If there is a certificate error coming up for nltk stopwords download: <br>
